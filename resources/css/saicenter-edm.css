@@ -303,6 +303,11 @@ hr.none{
 	color:#F1450E;
 	padding:0.5rem;
 }
+.orange-back{
+	background-color: #F1450E;
+	color:#ffebe6;
+	padding:0.5rem;
+}
 .bold-text{
 	font-weight:700;
 	
