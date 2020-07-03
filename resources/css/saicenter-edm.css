@@ -8,11 +8,10 @@ html, body{
 }
 .main{
 	background-color: #ffebe6;
-	padding:1.5rem;
+	padding:0.5rem;
 }
 
 .article{
-	padding:1.5rem;
 	background-color: #ffebe6;
 }
 .center
