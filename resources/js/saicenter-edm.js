@@ -61,7 +61,7 @@ function showSlides() {
   if (slideIndex2 > slides2.length) {slideIndex2 = 1}
   slides2[slideIndex2-1].style.display = "block";
   
-  var slides3 = document.getElementsByClassName("gallery3");
+ /* var slides3 = document.getElementsByClassName("gallery3");
   for (i = 0; i < slides3.length; i++) {
     slides3[i].style.display = "none";
   }
@@ -69,13 +69,13 @@ function showSlides() {
   if (slideIndex3 > slides3.length) {slideIndex3 = 1}
   slides3[slideIndex3-1].style.display = "block";
   
-  var slides4 = document.getElementsByClassName("gallery4");
+  /*var slides4 = document.getElementsByClassName("gallery4");
   for (i = 0; i < slides4.length; i++) {
     slides4[i].style.display = "none";
   }
   slideIndex4++;
   if (slideIndex4 > slides4.length) {slideIndex4 = 1}
   slides4[slideIndex4-1].style.display = "block";
-  
+  */
   setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
