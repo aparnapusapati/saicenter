@@ -8,6 +8,12 @@ html, body{
 }
 
 @media (max-width:500px){
+	.banner{
+		height:12rem!important;
+	}
+	.bannerSlides{
+		height:12rem!important;
+	}
 	.navlink a{
 		float: none!important;
 	}
@@ -397,9 +403,12 @@ ul.custom {
 	overflow:hidden;
 	word-wrap: break-word;
 	box-sizing:border-box;  
-	font-size: 12px;
+	font-size: 14px;
 	color: #ffebe6;
   font-family: 'Lato',sans-serif;
+}
+.thought{
+	font-size:12px;
 }
 .header{
 	font-size:23px;
@@ -932,7 +941,6 @@ article{
 
 li.mg-nav-item-has-children .wings-subnav-content li {
     display: block;
-    padding: .5rem 1rem;
     text-align: left;
 }
 
@@ -988,7 +996,6 @@ li.mg-nav-item-has-children .wings-subnav-content li a{
 
 li.mg-nav-item-has-children .about-subnav-content li {
     display: block;
-    padding: .5rem 1rem;
     text-align: left;
 }
 
