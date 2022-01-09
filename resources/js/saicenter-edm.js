@@ -46,6 +46,8 @@ function showDivs(n) {
   
 }
 var slideIndex1 = 0;
+var slideIndex31 = 0;
+var slideIndex32 = 0;
 var slideIndex2 = 0;
 var slideIndex3 = 0;
 var slideIndex4 = 0;
@@ -78,6 +80,14 @@ function showSlides() {
 	  slideIndex1++;
 	  if (slideIndex1 > slides1.length) {slideIndex1 = 1}
 	  slides1[slideIndex1-1].style.display = "block";
+
+	  var slidessse = document.getElementsByClassName("gallerysse");
+	  for (i = 0; i < slidessse.length; i++) {
+		  slidessse[i].style.display = "none";
+	  }
+	  slideIndex31++;
+	  if (slideIndex31 > slidessse.length) {slideIndex31 = 1}
+	  slidessse[slideIndex31-1].style.display = "block";
 	  
 	  var slides2 = document.getElementsByClassName("gallery2");
 	  for (i = 0; i < slides2.length; i++) {
@@ -105,6 +115,14 @@ function showSlides() {
 	  slideIndex4++;
 	  if (slideIndex4 > slides4.length) {slideIndex4 = 1}
 	  slides4[slideIndex4-1].style.display = "block";
+
+	  var mobileslidessse = document.getElementsByClassName("mobilegallerysse");
+	  for (i = 0; i < mobileslidessse.length; i++) {
+	    mobileslidessse[i].style.display = "none";
+	  }
+	  slideIndex32++;
+	  if (slideIndex32 > mobileslidessse.length) {slideIndex32 = 1}
+	  mobileslidessse[slideIndex32-1].style.display = "block";
   }
   
  /* var slides3 = document.getElementsByClassName("gallery3");
