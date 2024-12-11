@@ -146,7 +146,7 @@ html, body{
 
 
 .fa-bars:hover{
-	color:#F1450E!important;
+	color:#060129!important;
 }
 
 .thought{
@@ -155,10 +155,10 @@ html, body{
 	
 }
 .carousel-control-prev-icon{
-	background-color:#F1450E!important;
+	background-color:#fff!important;
 }
 .carousel-control-next-icon{
-	background-color:#F1450E!important;
+	background-color:#fff!important;
 }
 .mobile-show{
 	display:none;
@@ -174,7 +174,7 @@ html, body{
 }
 .mobile{
 	font-size:14px;
-	color:#F1450E;
+	color:#060129;
 }
 @media (min-width:600px){
 	.mobile{
@@ -218,13 +218,13 @@ html, body{
 .center-heading a:hover{
 	text-decoration: none;
 	font-size:14px;
-	color:#F1450E;
+	color:#060129;
 	transition: 0.3s;
 	}
 .email:hover{
 	text-decoration: none;
 	font-size:14px;
-	color:#F1450E;
+	color:#060129;
 	transition: 0.3s;
 }
 .center-heading h3{
@@ -232,7 +232,7 @@ html, body{
 }
 
 .article-in{
-	background-color:#F1450E;
+	background-color:#fff;
 	box-sizing:border-box; 
 	padding:1rem;
 	
@@ -241,16 +241,16 @@ html, body{
 .middle-div{
 	padding-bottom : 1rem;
 	font-size: 12px;
-	color: #F1450E;
+	color: #060129;
 	letter-spacing:normal;
   font-family: 'Lato',sans-serif;
 }
 .announcements{
 	font-size:14px;
 	font-weight:400;
-	border: 1.5px solid #F1450E;
+	border: 1.5px solid #060129;
 	background-color:#ffebe6;
-	color:#F1450E;
+	color:#060129;
 	box-sizing:border-box;  
 	padding:0.5rem;
 	width:100%;
@@ -258,7 +258,7 @@ html, body{
 }
 .event-content{
 	font-size:12px;
-	color:#F1450E;
+	color:#060129;
 	padding-left:1rem;
 	font-weight:bold;
 }
@@ -268,7 +268,7 @@ html, body{
 
 .article-content{
 	font-size:12px;
-	color:#F1450E;
+	color:#060129;
 	font-weight:bold;
 	background-color:#fff;
 	min-width:100%;
@@ -292,7 +292,7 @@ html, body{
     line-height: 0.5;
     border-radius: 0.25rem;
     color:#ffebe6;
-    background-color:#F1450E;
+    background-color:#fff;
     font-size:10px;
     cursor:pointer;
     overflow:auto!important;
@@ -383,7 +383,7 @@ ul.custom {
     position: fixed;
     right: 40px;
     bottom: 68px;
-    background: #F1450E;
+    background: #fff;
 }
 .scroll-btn i{
 	color:#ffebe6;
@@ -392,19 +392,19 @@ ul.custom {
 	border:none;
 }
 .footer-social .other-text a:hover{
-	background-color:#F1450E;
+	background-color:#060129;
 	color:#ffebe6;
 }
 
 .side-div-in{
-	background-color: #F1450E;
+	background-color: #fff;
 	border: 1px solid #BFBFBF;
 	padding:1rem;
 	overflow:hidden;
 	word-wrap: break-word;
 	box-sizing:border-box;  
 	font-size: 14px;
-	color: #ffebe6;
+	color: #060129;
   font-family: 'Lato',sans-serif;
 }
 .thought{
@@ -414,7 +414,7 @@ ul.custom {
 	font-size:23px;
 	font-weight:700;
 	font-family: 'Lato',sans-serif;
-	color:#F1450E;
+	color:#060129;
 	display:block;
 	box-sizing:border-box;
 }
@@ -422,7 +422,7 @@ ul.custom {
 	font-size:14px!important;
 	font-weight:500;
 	font-family: 'Lato',sans-serif;
-	color:#F1450E;
+	color:#060129;
 	letter-spacing:0.4px;
 	line-height:25px;
 	overflow:auto!important;
@@ -434,31 +434,31 @@ ul.custom {
 	font-size:14px!important;
 	font-weight:500;
 	font-family: 'Lato',sans-serif;
-	color:#F1450E;
+	color:#060129;
 	letter-spacing:0.4px;
 	line-height:25px;
 }
 .other-text a:hover{
 	text-decoration: none;
 	font-size:16px;
-	color:#F1450E;
+	color:#060129;
 	transition: 0.3s;
 	}
 hr.orange{	
-  border-top: 0.5px solid #F1450E !important;
+  border-top: 0.5px solid #060129 !important;
 }
 
 hr.orange-thin{	
-  border-top: 0.2px solid #F1450E !important;
+  border-top: 0.2px solid #060129 !important;
 }
 
 hr.orange-center{	
-  border: 2px solid #F1450E !important;
+  border: 2px solid #060129 !important;
   border-radius: 5px;
 }
 
 hr.orange-center-thin{	
-  border: 1.5px solid #F1450E !important;
+  border: 1.5px solid #060129 !important;
   border-radius: 5px;
 }
 
@@ -500,11 +500,11 @@ hr.none{
 }
 .pink-back{
 	background-color: #ffebe6;
-	color:#F1450E;
+	color:#060129;
 	padding:0.5rem;
 }
 .orange-back{
-	background-color: #F1450E;
+	background-color: #060129;
 	color:#ffebe6;
 	padding:0.5rem;
 }
@@ -522,9 +522,9 @@ hr.none{
 }
 .middle-box{
 	background-color: #fff;
-	color:#F1450E;
+	color:#060129;
 	padding:5% 10%;
-	border: 1.5px solid #F1450E;
+	border: 1.5px solid #060129;
 	box-sizing:border-box;
 	display:block;
 	min-width:100%;
@@ -532,9 +532,9 @@ hr.none{
 }
 .vahini-box{
 	background-color: #fff;
-	color:#F1450E;
+	color:#060129;
 	padding:2% 2%;
-	border: 1.5px solid #F1450E;
+	border: 1.5px solid #060129;
 	box-sizing:border-box;
 	display:block;
 	min-width:100%;
@@ -581,7 +581,7 @@ hr.none{
   background-color: #ffebe6;
 }
 .font-600{
-	fomt-weight:800 !important;
+	font-weight:800 !important;
 }
 .box-heading{
 	font-size:20px;
@@ -595,7 +595,7 @@ hr{
 #topbar .center-heading{
  float: left;
   display: block;
-  color: #F1450E;
+  color: #060129;
   text-align: center;
   text-decoration: none;
   font-size: 12px;
@@ -693,7 +693,7 @@ li{
     font-size: 32px;
     font-weight:500;
     font-family: 'Lato',sans-serif;
-    color:#ffebe6;
+    color:#060129;
     padding-left:1rem;
 }
 
@@ -745,7 +745,7 @@ ul.nav li{
 
 .inner-center-content {
     background: #fff;
-    color: #F1450E;
+    color: #060129;
     padding: 1rem;
     border-radius: 10px 0 0 10px;
     display: block;
@@ -754,7 +754,7 @@ ul.nav li{
     font-family: 'Lato',sans-serif;
 }
 .center-content{
-	background: #F1450E;
+	background: #fff;
 	display:block;
 	padding: 2rem;
 }
@@ -822,18 +822,18 @@ article{
 .middle-box a:hover{
 	text-decoration: none;
 	font-size:24px;
-	color:#F1450E;
+	color:#060129;
 	transition: 0.3s;
 	}
 .footer-content a:hover{
 	text-decoration: none;
-	color:#F96C11;
+	color:#fff;
 	transition: 0.3s;
 	}
 .article-content a:hover{
 	text-decoration: none;
 	font-size:20px;
-	color:#F1450E;
+	color:#060129;
 	transition: 0.3s;
 	}
 .pb-1{
@@ -906,7 +906,7 @@ article{
     min-width: 200px;
     opacity: 0;
     height:auto;
-    background-color:#F1450E;
+    background-color:#060129;
     visibility: hidden;
     border: 1px solid rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, .1);
@@ -960,7 +960,7 @@ li.mg-nav-item-has-children .wings-subnav-content li a{
     position: absolute;
     min-width: 300px;
     opacity: 0;
-    background-color:#F1450E;
+    background-color:#060129;
     visibility: hidden;
     border: 1px solid rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, .1);
