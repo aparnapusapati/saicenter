@@ -1,1657 +1,1975 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sai Centre Edmonton</title>
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-<link rel="stylesheet" href="resources/css/thirdparty/bootstrap.css"
-	type="text/css">
-<link rel="stylesheet" href="resources/css/saicenter-edm.css"
-	type="text/css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="resources/css/thirdparty/Fontawesome/css/all.min.css">
-<link rel="stylesheet"
-	href="resources/css/thirdparty/Fontawesome/css/fontawesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Sathya Sai Baba Centre of Edmonton</title>
 
-<script src="resources/js/thirdparty/jquery-3.5.0.min.js"></script>
-<script src="resources/js/thirdparty/bootstrap.js"></script>
-<script src="resources/js/thirdparty/bootstrap.min.js"></script>
-<script src="resources/js/saicenter-edm.js"></script>
-<style>
-.bannerSlides {
-	display: none;
-}
-</style>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ===== CSS CUSTOM PROPERTIES ===== */
+    :root {
+      --primary:        #1B3668;   /* SSIO navy blue */
+      --primary-dark:   #0D2040;   /* deeper navy */
+      --primary-light:  #2A5298;   /* medium blue */
+      --gold:           #C8941A;   /* warm gold accent */
+      --gold-light:     #E8B840;   /* lighter gold */
+      --cream:          #F2F5FA;   /* light blue-grey section bg */
+      --cream-mid:      #E4EAF5;   /* medium blue-grey */
+      --cream-dark:     #C8D4E8;   /* border blue-grey */
+      --text-dark:      #0D1E3A;   /* very dark navy */
+      --text-mid:       #2C4870;   /* medium navy */
+      --text-light:     #5C789C;   /* light navy-grey */
+      --nav-dark:       #0D1E3A;   /* navbar dark navy */
+      --white:          #FFFFFF;
+      --shadow-sm:      0 2px 8px rgba(13,30,58,0.10);
+      --shadow-md:      0 4px 20px rgba(13,30,58,0.15);
+      --shadow-lg:      0 8px 40px rgba(13,30,58,0.22);
+      --radius:         8px;
+      --radius-lg:      16px;
+      --transition:     0.3s ease;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.3;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; padding: 0; margin: 0; }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+    }
+    .section-title span {
+      color: var(--primary);
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .gold-rule {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--gold));
+      border-radius: 2px;
+      margin: 0.75rem 0 1.5rem;
+    }
+    .gold-rule.center { margin-left: auto; margin-right: auto; }
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.6rem;
+      border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      border: 2px solid var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .text-center { text-align: center; }
+
+    /* ===== TOP INFO BAR ===== */
+    #topbar {
+      background: var(--cream-mid);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+    }
+    #topbar .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    #topbar .topbar-contact {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    #topbar .topbar-contact a {
+      color: var(--text-mid);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color var(--transition);
+    }
+    #topbar .topbar-contact a:hover { color: var(--primary); }
+    #topbar .topbar-contact i { color: var(--primary); font-size: 0.75rem; }
+    #topbar .topbar-social {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    #topbar .topbar-social a {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-mid);
+      font-size: 0.8rem;
+      border: 1px solid var(--cream-dark);
+      transition: var(--transition);
+    }
+    #topbar .topbar-social a:hover {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      background: var(--nav-dark);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: box-shadow var(--transition);
+    }
+    #navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    #navbar .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    #navbar .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    #navbar .nav-brand img {
+      height: 42px;
+      width: auto;
+    }
+    #navbar .nav-brand-text {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+    #navbar .nav-brand-text span {
+      display: block;
+      font-size: 0.65rem;
+      font-family: 'Lato', sans-serif;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+    }
+    #navbar .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    #navbar .nav-links li { position: relative; }
+    #navbar .nav-links li a {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0 1.1rem;
+      height: 64px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+      white-space: nowrap;
+    }
+    #navbar .nav-links li a:hover,
+    #navbar .nav-links li a.active {
+      color: var(--gold-light);
+    }
+    #navbar .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px 2px 0 0;
+      transform: translateX(-50%);
+      transition: width var(--transition);
+    }
+    #navbar .nav-links li a:hover::after,
+    #navbar .nav-links li a.active::after { width: 70%; }
+
+    /* Dropdowns */
+    #navbar .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      background: var(--white);
+      border-top: 3px solid var(--primary);
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all var(--transition);
+      z-index: 200;
+    }
+    #navbar .nav-links li:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #navbar .dropdown-menu li a {
+      height: auto;
+      padding: 0.7rem 1.2rem;
+      color: var(--text-dark);
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      display: block;
+      border-bottom: 1px solid var(--cream);
+      transition: background var(--transition), color var(--transition);
+    }
+    #navbar .dropdown-menu li a::after { display: none; }
+    #navbar .dropdown-menu li a:hover {
+      background: var(--cream);
+      color: var(--primary);
+      padding-left: 1.6rem;
+    }
+    #navbar .dropdown-menu li:last-child a { border-bottom: none; }
+
+    /* Hamburger */
+    #nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 18px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    #nav-toggle span {
+      display: block;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ===== HERO CAROUSEL ===== */
+    #hero {
+      position: relative;
+      height: 88vh;
+      min-height: 480px;
+      overflow: hidden;
+      background: var(--nav-dark);
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(13,30,58,0.06) 0%, rgba(13,30,58,0.28) 100%);
+    }
+    /* Buttons positioned just above the dot row */
+    .hero-overlay-btns {
+      position: absolute;
+      bottom: 76px;
+      left: 0;
+      right: 0;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 24px;
+      z-index: 10;
+    }
+    .btn-hero {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.28s ease;
+      text-decoration: none;
+    }
+    .btn-hero-primary {
+      background: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--white);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.30), 0 1px 4px rgba(0,0,0,0.15);
+    }
+    .btn-hero-primary:hover {
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    }
+    .btn-hero-ghost {
+      background: rgba(255,255,255,0.14);
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.20);
+    }
+    .btn-hero-ghost:hover {
+      background: rgba(255,255,255,0.28);
+      border-color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    }
+
+    /* Carousel controls */
+    .hero-controls {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+    .hero-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+      font-size: 1rem;
+    }
+    .hero-arrow:hover { background: var(--primary); border-color: var(--primary); }
+    #hero-prev { left: 24px; }
+    #hero-next { right: 24px; }
+
+    /* ===== ABOUT / EXECUTIVE SECTION ===== */
+    #events {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    #about {
+      padding: 80px 0;
+      background: var(--cream);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-contact-block {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--cream-dark);
+    }
+    .about-contact-block .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .contact-icon {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.85rem;
+    }
+    .about-contact-block .contact-item a {
+      color: var(--text-mid);
+      transition: color var(--transition);
+    }
+    .about-contact-block .contact-item a:hover { color: var(--primary); }
+    .contact-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+      font-weight: 700;
+    }
+    .contact-value {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      font-weight: 400;
+    }
+
+    /* Executive Team */
+    .exec-section { margin-top: 2rem; }
+    .exec-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      border-bottom: 2px solid var(--cream-dark);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .exec-table { width: 100%; }
+    .exec-row {
+      display: flex;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--cream);
+      font-size: 0.85rem;
+    }
+    .exec-row:last-child { border-bottom: none; }
+    .exec-role {
+      color: var(--text-light);
+      min-width: 160px;
+      font-size: 0.78rem;
+    }
+    .exec-name { color: var(--text-dark); font-weight: 700; }
+
+    /* Thought for the Week */
+    .thought-card {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .thought-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 8rem;
+      font-family: 'Playfair Display', serif;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+    }
+    .thought-card .thought-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .thought-card blockquote {
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .thought-card .thought-attr {
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+    .love-serve {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ===== ACTIVITIES ===== */
+    #activities {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .activities-header { text-align: center; margin-bottom: 3rem; }
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .activity-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .activity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .activity-img-wrap {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    .activity-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .activity-card:hover .activity-img-wrap img { transform: scale(1.06); }
+    .activity-img-wrap .activity-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+    }
+    .activity-body { padding: 1.5rem; }
+    .activity-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--cream-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .activity-card h3 {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+    .activity-schedule { margin-top: 0.75rem; }
+    .schedule-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--cream);
+      font-size: 0.82rem;
+      color: var(--text-mid);
+    }
+    .schedule-item:last-child { border-bottom: none; }
+    .schedule-day {
+      min-width: 70px;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.75rem;
+    }
+
+    /* ===== ANNOUNCEMENTS/EVENTS ===== */
+    .events-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .event-featured {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .event-featured img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .event-featured-body {
+      padding: 1.75rem;
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      border-top: none;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+    .event-tag {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      margin-bottom: 0.75rem;
+    }
+    .event-featured-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+    .event-featured-body p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .event-featured-body .btn { margin-top: 1.25rem; }
+
+    .side-notices { display: flex; flex-direction: column; gap: 1rem; }
+    .notice-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      border: 1px solid var(--cream-dark);
+      border-left: 4px solid var(--primary);
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .notice-card strong { color: var(--text-dark); display: block; margin-bottom: 0.3rem; }
+
+    /* ===== SERIES / BOOKS ===== */
+    #series {
+      padding: 80px 0;
+      background: var(--cream);  /* light blue-grey */
+    }
+    .series-header { text-align: center; margin-bottom: 2.5rem; }
+    .series-track-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .series-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease;
+    }
+    .series-card {
+      min-width: 200px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      flex-shrink: 0;
+    }
+    .series-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .series-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .series-card-body {
+      padding: 1rem;
+      text-align: center;
+    }
+    .series-card-body p {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .series-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .series-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .series-btn:hover { background: var(--primary); color: var(--white); }
+
+    /* ===== CALENDAR ===== */
+    #edmCalendar {
+      padding: 80px 0;
+      background: var(--white);  /* white */
+    }
+    .calendar-header { text-align: center; margin-bottom: 2.5rem; }
+    .calendar-embed-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--cream-dark);
+    }
+    .calendar-embed-wrap iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    /* ===== GALLERY ===== */
+    #gallery {
+      padding: 80px 0;
+      background: var(--cream);  /* light blue-grey */
+    }
+    .gallery-header { text-align: center; margin-bottom: 3rem; }
+    .gallery-section { margin-bottom: 3.5rem; }
+    .gallery-section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .gallery-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--cream-dark);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 8px;
+    }
+    .gallery-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.3s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.1);
+    }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      color: var(--white);
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity var(--transition);
+    }
+    #lightbox-close:hover { opacity: 1; }
+
+    /* ===== ARTICLES ===== */
+    #articles {
+      padding: 80px 0;
+      background: var(--white);  /* white */
+    }
+    .articles-header { text-align: center; margin-bottom: 3rem; }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .article-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--cream-dark);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .article-card-img {
+      height: 200px;
+      overflow: hidden;
+      background: var(--cream-mid);
+    }
+    .article-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .article-card:hover .article-card-img img { transform: scale(1.05); }
+    .article-card-img iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .article-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-date {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .article-body h3 {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 0.6rem;
+      flex: 1;
+    }
+    .article-body p {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .read-more {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap var(--transition), color var(--transition);
+    }
+    .read-more:hover { color: var(--primary-dark); gap: 0.8rem; }
+
+    /* ===== CONNECT STRIP ===== */
+    #connect {
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+      padding: 50px 0;
+      text-align: center;
+      color: var(--white);
+    }
+    #connect h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    #connect p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      margin-bottom: 1.75rem;
+    }
+    .connect-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .connect-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: background var(--transition);
+      backdrop-filter: blur(4px);
+    }
+    .connect-pill:hover { background: rgba(255,255,255,0.28); }
+    .connect-pill i { font-size: 1rem; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--nav-dark);
+      color: rgba(255,255,255,0.75);
+      padding: 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand img { height: 50px; margin-bottom: 1rem; }
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .footer-social a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+    }
+    .footer-col ul li {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-col ul li:last-child { border-bottom: none; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      transition: color var(--transition), padding-left var(--transition);
+      display: block;
+    }
+    .footer-col ul li a:hover { color: var(--gold-light); padding-left: 4px; }
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+    }
+    .footer-contact-item i {
+      color: var(--primary-light);
+      margin-top: 3px;
+      font-size: 0.8rem;
+    }
+    .footer-contact-item a {
+      color: rgba(255,255,255,0.65);
+      transition: color var(--transition);
+    }
+    .footer-contact-item a:hover { color: var(--gold-light); }
+    .footer-newsletter p {
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .newsletter-form a {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+    .newsletter-form a:hover { background: var(--primary-dark); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.5); }
+    .footer-bottom a:hover { color: var(--gold-light); }
+
+    /* ===== SCROLL TO TOP ===== */
+    #scrollTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      border: none;
+      z-index: 500;
+    }
+    #scrollTop.visible { opacity: 1; visibility: visible; }
+    #scrollTop:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .activities-grid { grid-template-columns: 1fr; }
+      .events-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      #topbar { display: none; }
+      #nav-toggle { display: flex; }
+      #navbar .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--nav-dark);
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      #navbar .nav-links.open { display: flex; }
+      #navbar .nav-links li a {
+        height: auto;
+        padding: 0.75rem 1.5rem;
+        justify-content: space-between;
+      }
+      #navbar .nav-links li a::after { display: none; }
+      #navbar .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border-top: none;
+        border-radius: 0;
+        background: rgba(255,255,255,0.05);
+        display: none;
+        border: none;
+      }
+      #navbar .dropdown-menu.open { display: block; }
+      #navbar .dropdown-menu li a {
+        color: rgba(255,255,255,0.7);
+        padding: 0.6rem 2.5rem;
+        border-bottom-color: rgba(255,255,255,0.06);
+      }
+      #navbar .dropdown-menu li a:hover { color: var(--gold-light); background: transparent; }
+      #hero { height: 60vh; }
+      .hero-overlay-btns { bottom: 64px; }
+      .activities-grid { grid-template-columns: 1fr; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      #hero-prev, #hero-next { display: none; }
+    }
+    @media (max-width: 480px) {
+      #about, #activities, #events, #series, #edmCalendar, #gallery, #articles { padding: 50px 0; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-	<div class="w-100">
-		<div id="topbar" class="d-flex flex-row  desktop-hdg">
-			<div class="col-md-7 col-sm-20 col-8 padding-left-0">
-				<div class="d-flex flex-row">
-					<span><img src="resources/images/ssio-logo.png"
-						alt="Sathya sai center logo" /></span>
-					<div class="w-100">
-						<div class="d-flex flex-column padding-1">
-							<span class="center-heading"><h2>Sri Sathya Sai Baba
-									Centre of Edmonton</h2></span> <span class="center-heading"><h3>SSIO
-									Canada, Zone 1, Region 13</h3></span> <span class="center-heading"><i>Helping
-									humanity realise its inherent divinity</i></span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 col-sm-10 col-3">
-				<div class="d-flex flex-column padding-1">
-					<span class="center-heading padding-bottom-1 padding-top-1">
-						<b>Reach us @</b>
-					</span> <span class="center-heading padding-bottom-quarter"> <a
-						href="tel:7804377243"> <i class="fas fa-phone-alt "></i>
-							&nbsp;(780) 437-7243
-					</a>
-					</span> <span class="center-heading padding-bottom-quarter"> <a
-						class="email" href="mailto:saicenteredmonton@telus.net"> <i
-							class="fas fa-envelope"> </i> &nbsp;saicenteredmonton@telus.net
-					</a>
-					</span> <span class="center-heading padding-bottom-quarter"> <a
-						href="https://www.google.com/maps/place/Sri+Sathya+Sai+Baba+Centre+of+Edmonton/@53.517882,-113.4777399,15z/data=!4m5!3m4!1s0x0:0x3070cf84a887bc00!8m2!3d53.517882!4d-113.4777399"
-						target="_blank"> <i class="fas fa-map-marker-alt"></i>
-							&nbsp;&nbsp;9619 82nd Ave NW, Edmonton, AB, T6C 0Z9
-					</a>
-					</span>
-				</div>
-			</div>
-			<div class="col-md-2 col-sm-8 col-2">
-				<div class="d-flex flex-column padding-1">
-					<span class="center-heading padding-bottom-1 padding-top-1">
-						<b>Follow us @</b>
-					</span> <span class="center-heading padding-bottom-quarter"> <a
-						href="https://www.facebook.com/saicentreedmonton/" target="_blank">
-							<i class="fab fa-facebook-f "></i> &nbsp;&nbsp;&nbsp;Facebook
-					</a>
-					</span> <span class="center-heading padding-bottom-quarter"> <a
-						href="https://www.youtube.com/channel/UC_PlUutiUyR8PNBlKMzJCtQ/featured"
-						target="_blank"> <i class="fab fa-youtube"></i> &nbsp;Youtube
-					</a>
-					</span> <span class="center-heading padding-bottom-quarter"> <a
-						href="https://mixlr.com/sai-centre-edmonton/" target="_blank">
-							<i class="fas fa-play-circle"></i> &nbsp;&nbsp;Listen to live
-							stream bhajans
-					</a>
-					</span>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="mobile">
-			<div class="d-flex flex-row heading-row">
-				<div class="d-flex flex-column padding-1">
-					<span> <img style="height: 3rem"
-						src="resources/images/ssio-logo.png" alt="Sathya sai center logo" />
-					</span>
-				</div>
-				<div class="d-flex flex-column padding-1 no-padding-mobile">
-					<div class="flex-row heading-row">
-						<div>
-							<span class="center-heading">Sri Sathya Sai Baba Center of
-								Edmonton</span>
-						</div>
-						<div>
-							<span class="center-heading"> <a href="tel:7804377243">
-									<i class="fas fa-phone-alt "></i>
-							</a></span>&nbsp; <span class="center-heading padding-bottom-quarter">
-								<a class="email" href="mailto:saicenteredmonton@telus.net">
-									<i class="fas fa-envelope"> </i>
-							</a>
-							</span>&nbsp; <span class="center-heading padding-bottom-quarter">
-								<a
-								href="https://www.google.com/maps/place/Sri+Sathya+Sai+Baba+Centre+of+Edmonton/@53.517882,-113.4777399,15z/data=!4m5!3m4!1s0x0:0x3070cf84a887bc00!8m2!3d53.517882!4d-113.4777399"
-								target="_blank"> <i class="fas fa-map-marker-alt"></i>
-							</a>
-							</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <span
-								class="center-heading padding-bottom-quarter"> <a
-								href="https://www.facebook.com/saicentreedmonton/"
-								target="_blank"> <i class="fab fa-facebook-f "></i>
-							</a>
-							</span> &nbsp; <span class="center-heading padding-bottom-quarter">
-								<a
-								href="https://www.youtube.com/channel/UC_PlUutiUyR8PNBlKMzJCtQ/featured"
-								target="_blank"> <i class="fab fa-youtube"></i>
-							</a>
-							</span>&nbsp; <span class="center-heading padding-bottom-quarter">
-								<a href="https://mixlr.com/sai-centre-edmonton/" target="_blank">
-									<i class="fas fa-play-circle"></i>
-							</a>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div class="d-flex flex-column padding-1 mg-top-1">
-					<div>
-						<a href="javascript:void(0);" onclick="showBurgerMenu()"> <i
-							class="fa fa-bars fa-2x" aria-hidden="true"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="w-100">
-			<div id="navbar"
-				class="d-flex flex-row align-items-center collapse navbar-collapse w-100">
-				<div class="col-md-2 col-3 sairam">
-					<div class="logo">
-						<a href="index.html">AUM SAI RAM</a>
-					</div>
-				</div>
-				<div class="col-md-8 col-5 text-right w-100">
-					<ul class="nav justify-content-center">
-						<li class="navlink active"><a href="index.html">HOME</a></li>
-						<li class="navlink"><a href="index.html#events">EVENTS</a></li>
-						<li class="mg-nav-item-has-children navlink"><a
-							href="javascript:void(0);">WINGS</a>
-							<ul class="wings-subnav-content">
-								<li><a href="https://sathyasai.ca/devotion/"
-									target="_blank">DEVOTION</a></li>
-								<li><a href="https://sathyasai.ca/education/"
-									target="_blank">EDUCATION</a></li>
-								<li><a href="https://sathyasai.ca/service/" target="_blank">SERVICE</a></li>
-								<li><a href="https://sathyasai.ca/ya/" target="_blank">YOUNG
-										ADULTS</a></li>
-								<li><a href="http://www.saimedical.ca/" target="_blank">MEDICAL</a></li>
-							</ul></li>
-						<li class="mg-nav-item-has-children navlink"><a
-							href="javascript:void(0);">ABOUT</a>
-							<ul class="about-subnav-content">
-								<li><a
-									href="https://sathyasai.org/sathya-sai/life-and-legacy"
-									target="_blank">SATHYA SAI</a></li>
-								<li><a href="http://saibooksonline.org/" target="_blank">Book
-										and Information Center</a></li>
-								<li><a href="https://sathyasai.ca/poc/" target="_blank">Public
-										Outreach Committe</a></li>
-								<li></li>
-							</ul></li>
-						<li class="navlink"><a href="index.html#edmCalendar">CALENDAR</a>
-						</li>
-						<li class="navlink"><a href="index.html#edmContactUs">CONTACT
-								US</a></li>
-					</ul>
-					<!-- <div class="topnav" id="myTopnav">
-					<div class="menu"><a href="#home">HOME</a> </div>
-					<div class="menu"><a href="#news">EVENTS</a></div>
-					 <div class="menu"><a
-						href="#contact">WINGS</a> </div>
-					<div class="menu"><a href="#about">ABOUT</a> </div>
-					<div class="menu"><a
-						href="#calendar">CALENDAR</a> </div>
-					<div class="menu"><a href="#contactus">CONTACT US</a></div>
-					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-						<i class="fa fa-bars"></i>
-					</a>
-				</div> -->
-				</div>
-				<div class="col-md-2 col-4 menu-logo">
-					<ul>
-						<li><a><img style="height: 3rem"
-								src="resources/images/ssio-logo.png"></a></li>
-					</ul>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="w-100">
-			<div class="d-flex banner">
-				<div class="w3-display-container banner">
-					<img class="bannerSlides" src="resources/images/banner1.jpg">
-					<img class="bannerSlides" src="resources/images/banner2.jpg">
-					<img class="bannerSlides" src="resources/images/banner4.jpg">
-					<img class="bannerSlides" src="resources/images/banner5.jpg">
-					<button class="w3-button w3-red w3-display-left"
-						onclick="plusDivs(-1)">&#10094;</button>
-					<button class="w3-button w3-red w3-display-right"
-						onclick="plusDivs(1)">&#10095;</button>
-				</div>
-				<!-- <img id="banner" class="banner" alt="Sai Center Edmonton Banner" src="resources/images/banner1.jpg"/>-->
-			</div>
-		</div>
-
-		<div class="d-flex flex-row main">
-			<div class="col-md-2 side-div-out">
-				<div class="side-div-in">
-					<span class="bold-text"> SRI SATHYA SAI BABA CENTER OF
-						EDMONTON </span>
-					<hr class="pink" />
-					<div class="rounded pink-back">
-						<span class="bold-text">Address:</span> <br /> <a
-							href="https://www.google.com/maps/place/Sri+Sathya+Sai+Baba+Centre+of+Edmonton/@53.517882,-113.4777399,15z/data=!4m5!3m4!1s0x0:0x3070cf84a887bc00!8m2!3d53.517882!4d-113.4777399"
-							class="email" target="_blank"> 9619 82nd Ave NW, Edmonton,
-							AB, T6C 0Z9 </a>
-						<hr class="orange" />
-						<span class="bold-text">Phone:</span> <br /> <a class="email"
-							href="tel:7804377243" target="_blank">(780) 437-7243</a>
-							<a class="email" href="mailto:saicenteredmonton@telus.net">
-								saicenteredmonton@telus.net</a>
-					</div>
-					<br /> <br /> <span class="bold-text"> Executive Team 2024/2025 </span>
-					<hr class="pink" />
-					<div class="rounded pink-back">
-						<span class="bold-text">President:</span> <br /> Mr. Troy Mangru
-						 <br />   
-						<hr class="orange" />
-						<span class="bold-text">Vice President:</span> <br /> Mrs. Lakshmi Somesh
-						 <br />  
-						 
-						<hr class="orange" />
-						<span class="bold-text">Devotional Wing Coordinator:</span> <br />
-						Mrs. Aarti Mangru <br />  
-						<hr class="orange" />
-						<span class="bold-text">Service Wing Coordinator:</span> <br />
-						Mr. Somesh Krishnan Murthy <br />  
-							<hr class="orange" />
-						<span class="bold-text">Sathya Sai Baba Centre Foundation:</span> <br />
-						Mr. Anshuman Tyagi <br />  
-						<hr class="orange" />
-						<span class="bold-text">Education Wing Coordinator:</span> <br />
-						Mrs. Jayalakshmi Ramasubramaniyan <br />  
-					</div>
-					<br /> <br /> <span class="bold-text"> THOUGHT FOR THE
-						WEEK </span>
-					<hr class="pink" />
-					<div class="rounded pink-back thought">
-						<span class="bold-text padding-1"><i>
-							 <p>
-To a worldly person, a ‘God-intoxicated’ man will appear mad, and the person will laugh at him. But to the God-intoxicated man, the world appears insane, foolish, misled, and blind. Of all the insanities, ‘God-madness’ is the least harmful, the most beneficial.
-						</p>- Sri Sathya Sai Baba, February 20, 1955.
-							</i> <br />
-						<div class="orange-back">
-							<span class="bold-text">Love All, Serve All. Help Ever,
-								Hurt Never.</span><i> - Baba</i>
-						</div>
-					</div>
-					<hr class="none" />
-					<!-- <span class="bold-text"> GEETHA SERIES </span>
-				<hr class="pink" />
-				<div class="rounded pink-back">
-					<div>
-						<img class="article-content-img w-100"
-							src="resources/images/gita.jpg">
-					</div>
-					<hr class="orange"/>
-					<button type="button" class="sponsor-btn" onclick="window.open('https://radiosai.org/program/listen.php?f=TL_LIVE_2018_09_06_10_7_30PM_TO_8_30PM.mp3')">
-							Geetha Series Curtain Raiser</button>
-					<hr class="none"/>
-					<button type="button" class="sponsor-btn" onclick="window.open('https://radiosai.org/program/listen.php?f=TL_LIVE_2018_09_13_09_7_30PM_TO_8_30PM.mp3')">
-							Geetha Series Slokas 1 to 6</button>
-					<hr class="none"/>
-					<button type="button" class="sponsor-btn" onclick="window.open('https://radiosai.org/program/listen.php?f=TL_LIVE_2018_09_20_10_7_30PM_TO_8_30PM.mp3')">
-							Geetha Series Slokas 7 to 11</button>
-					<hr class="none"/>
-					<button type="button" class="sponsor-btn" onclick="window.open('https://radiosai.org/program/listen.php?f=TL_LIVE_2018_09_27_10_7_30PM_TO_8_30PM.mp3')">
-							Geetha Series Slokas 12 to 24</button>
-					<hr class="none"/>
-				</div> -->
-				</div>
-
-			</div>
-			<div class="col-md-7 middle-content">
-				<div class="middle-div bold-text">
-					<span class="h2-title">
-
-						<center>SATHYA SAI BABA CENTRE OF EDMONTON - ACTIVITIES</center>
-					</span>
-					<center>
-						<hr class="orange-center w-50" />
-					</center>
-				</div>
-
-				<div class="d-flex flex-row middle-div announcement">
-					<div class="w-100 pad-1">
-						<div class="middle-box rounded w-100">
-							<center>
-								<span class="box-heading"><a href="">ANNOUNCEMENTS</a></span>
-							</center>
-							<center>
-								<hr class="orange-center-thin w-40" />
-							</center>
-							 <div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> <b>Events at the center this month</b>
-								
-							<!--	<p> <button type="button" class="sponsor-btn"
-									onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdPo6_fnOoCIcxYVm1er0IZILRYt-iHLAcZmXL3W65W3i27Iw/viewform')">Please RSVP Here
-									</button>
-								to register.<br /> </p> -->
-								 
-							
-							<head>
-								<style>
-								 
-								
-								.column {
-								  float: left;
-								  width: 900%;
-								  padding: 20px;
-								}
-								
-								/* Clearfix (clear floats) */
-								.row::after {
-								  content: "";
-								  clear: both;
-								  display: table;
-								}
-								</style>
-								</head>
-							<div class="row">
-								<div class="column">
-								  <img src="resources/images/dec_2025.jpeg" alt="Apr2026" style="width:100%">
-								</div>
-								 
-								 
-							  </div> 
-							</div>  
-							
-							 
-						<!--	<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> <b>December 24th 2023 - Christmas Celebrations</b>
-								
-								 
-								<p><img src="resources/images/Xmas2023.png"
-									style="height: 50%; width: 50%" alt="XMas" /> </p>
-							</div>  
-							 
-							 
-							<hr class="none" />-->
-			
-						 
-							<!-- <hr class="none" />
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> <b>SSE Reopens - September 8, 2024</b>
-								<p>Weekly classes are on Sundays from 10.30 am-12.00pm. 
-									In-person classes will be held at the Sai Centre during Fall (September to November) and Spring (April-June). 
-									Classes will be online during Winter (December to March). </p>
-									<p>Gurus are excited to welcome the students and are looking forward to a wonderful journey in the new SSE year. 
-
-										All students and parents are requested to be present on the opening day to get information about 2024-2025 SSE.
-										
-										Parents, if you haven't registered your child, please reach out to sseedmonton@gmail.com </p>
-							</div>  
-						 
-							<hr class="none" />
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> SaiCenter Edmonton Library Opens
-								December 5th.
-								<button type="button" class="sponsor-btn"
-									onclick="window.open('library.html')">Click here for
-									Details</button>
-								<br />
-							</div>-->
-							
-							<!--
-							<hr class="none" />
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> Study Circle every Wednesday
-								evening at 7:30pm. Topic: Unity is Divinity, Purity is
-								Enlightenment
-								<button type="button" class="sponsor-btn"
-									onclick="window.open('https://us02web.zoom.us/j/88429117768?pwd=RlozdVhkUFNUQS9mZUR3Ky9kcU9WQT09#success')">Click
-									here</button>
-								to join on zoom. &nbsp;
-								<button type="button" class="sponsor-btn"
-									onclick="window.open('https://www.sathyasai.org/study-guides/unity-is-divinity-purity-is-enlightenment')">Click
-									here</button>
-								for study guide<br />
-							</div>
-							<hr class="none" />
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> SSE Registration 2021-22 year.
-								Please download and complete the following forms and email them
-								to <a href="mailto:sseedmonton@gmail.com" class="email">sseedmonton@gmail.com
-								</a> asap.
-								<button type="button" class="sponsor-btn"
-									onclick="window.open('https://mcusercontent.com/7a91a5ba491b1c4a0f3be5370/files/e08e3b57-b208-7ccb-106c-45c36f348bcd/SSE_Registration_Form_with_waiver_for_injury_2021_22.pdf')">SSE
-									Registration Form</button>
-								&nbsp;
-								<button type="button" class="sponsor-btn"
-									onclick="window.open('https://mcusercontent.com/7a91a5ba491b1c4a0f3be5370/files/24399db0-a517-1e8d-f4fb-e901d6b05f6b/Waiver_for_Photos_and_Video_Revised_August_2020_1.pdf')">Waiver
-									for photos and videos</button>
-								&nbsp;
-								<button type="button" class="sponsor-btn"
-									onclick="window.open('https://mcusercontent.com/7a91a5ba491b1c4a0f3be5370/files/678cc10b-ab5f-6b4a-9613-a7a843ea71c9/Waiver_Form_for_Field_Trip_2018.pdf')">Waiver
-									for field trips</button>
-								<br />
-							</div>
-								<hr class="none" />
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> &nbsp; <b>Guest Speaker Brother Shyam Kanagal on November 20th at 6pm on Zoom.</b> Topic - My Birthday Gift  </a>
-							</div>
-							<hr class="none" />
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> &nbsp; <b>Please join for Akhanda Bhajans at the Centre on Sunday, November 14 from 10am - 1pm. </b>  </a>
-							</div> -->
-							
-							
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> &nbsp; Join Edmonton Sai Center's WhatsApp group at &nbsp; <a
-									href="https://saibabacentre-edmonton.us13.list-manage.com/track/click?u=7a91a5ba491b1c4a0f3be5370&id=a48ad307cd&e=d3f0c7c968" target="_blank">
-									<img src="resources/images/CentreWhatsApp.png"
-									style="height: 8%; width: 10%" alt="whatsapp" />
-								</a>
-							</div>
-						<!--	<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> &nbsp; Tune into Live Thursday
-								Bhajan Session at 7pm on &nbsp; <a
-									href="https://mixlr.com/sai-centre-edmonton/" target="_blank">
-									<img src="resources/images/mixlr-logo-001.jpeg"
-									style="height: 8%; width: 10%" alt="mixlr" />
-								</a>
-							</div> -->
-
-							
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> &nbsp; Tune into Live Sunday
-								Bhajan Session at 12pm on &nbsp; <a
-									href="https://mixlr.com/sai-centre-edmonton/" target="_blank">
-									<img src="resources/images/mixlr-logo-001.jpeg"
-									style="height: 8%; width: 10%" alt="mixlr" />
-								</a>
-							</div>
-
-						<!--	<hr class="none" />
-							<div class="announcements rounded">
-								<i class="fa fa-bullhorn"></i> &nbsp; Open Line to President Dr.
-								Prem Kharbanda, Every Tuesday 10am - 11am. Call <a
-									href="tel:7809019699"> <i class="fas fa-phone-alt "></i>&nbsp;780-901-9699.&nbsp;
-	
-							</div>-->
-							<hr class="none" />
-						</div>
-					</div>
-				</div>
-				<div class="d-flex flex-row middle-div w-100 justify-content-center">
-					<div class="col-lg-6 col-sm-8 events">
-						<div class="middle-box rounded">
-							<center>
-								<span class="box-heading"><a href=""><b>DEVOTION</b></a></span>
-							</center>
-							<center>
-								<hr class="orange-center-thin w-40" />
-							</center>
-							<div class="event-div w-100">
-								<div>
-									<img class="events-img" src="resources/images/spiritual3.jpg">
-								</div>
-								<hr class="none" />
-								<div class="d-flex flex-row event-content">
-									<div>
-										<i class="fas fa-praying-hands"></i>
-									</div>
-									<div class="event-text">
-										<span>Thursdays, 7 PM - Satsang.<!-- Please click <a
-											href="https://mixlr.com/sai-centre-edmonton/" target="_blank"
-											class="email"><i class="fas fa-play-circle"></i> </a> for
-											online live session-->
-										</span>
-									</div>
-								</div>
-								<hr class="none" />
-								<div class="d-flex flex-row event-content">
-									<div>
-										<i class="fas fa-praying-hands"></i>
-									</div>
-									<div class="event-text">
-										<span>Saturdays, 7:30 AM - Padhuka Pooja, Ganesh
-											Abhishekam</span>&nbsp;
-										<!--<button type="button" class="sponsor-btn"
-											onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeTn9UIURgfujpdlbRj_WLxILti2C1LdjE2E6RmxFmX4Qxz4Q/viewform')">Click
-											here to sponsor</button> -->
-									</div>
-								</div>
-								<hr class="none" />
-								<div class="d-flex flex-row event-content">
-									<div>
-										<i class="fas fa-praying-hands"></i>
-									</div>
-									<div class="event-text">
-										Sundays, 12 PM - Satsang. <!--Please click <a
-											href="https://mixlr.com/sai-centre-edmonton/" target="_blank"
-											class="email"><i class="fas fa-play-circle"></i> </a> for
-										online live session -->
-									</div>
-								</div>
-								<br />
-
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-lg-6 col-sm-8 events">
-						<div class="middle-box rounded">
-							<center>
-								<span class="box-heading"><a href="">SERVICE</a></span>
-							</center>
-							<center>
-								<hr class="orange-center-thin w-40" />
-							</center>
-							<div class="event-div w-100">
-								<div>
-									<img class="events-img" src="resources/images/service.jpg">
-								</div>
-								<hr class="none" />
-
-								<!-- <div class="d-flex flex-row event-content">
-									<div>
-										<i class="fas fa-hand-holding-heart"></i>
-									</div>
-									<div class="event-text">
-										<span>Ronald McDonald House</span>&nbsp;
-										<button type="button" class="sponsor-btn"
-											onclick="window.open('https://www.google.com/maps/place/Ronald+McDonald+House+Charities%C2%AE+Alberta/@53.5139981,-113.5068654,15z/data=!4m2!3m1!1s0x0:0x244617e0681c5ad0?sa=X&ved=2ahUKEwjuw5zJnK_qAhUGrZ4KHa5WA14Q_BIwCnoECBEQCA');">
-											<i class="fas fa-map-marker-alt"></i>&nbsp;Location
-										</button>
-									</div>
-								</div>
-								<hr class="none" />-->
-
-								<div class="d-flex flex-row event-content">
-									<!--<div>
-										<i class="fas fa-hand-holding-heart"></i>
-									</div>
-									<div class="event-text">
-										<span> Food Hamper Drive</span>&nbsp;
-										<button type="button" class="sponsor-btn"
-											onclick="window.open('fooddrive.html')">Read more</button>
-									</div>
-								</div>
-								<hr class="none" />
-								<div class="d-flex flex-row event-content">
-									<div>
-										<i class="fas fa-hand-holding-heart"></i>
-									</div>
-									<div class="event-text">
-										<span>Chair lift Project</span>&nbsp;
-										<button type="button" class="sponsor-btn"
-											onclick="window.open('chairlift.html')">Read more</button>
-									</div> -->
-								</div>
-								<br />
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<!-- <div class="d-flex flex-row middle-div w-100 justify-content-center">
-			<div class="col-lg-9 col-sm-12">
-					<div class="middle-box rounded">
-						<center>
-							<span class="box-heading"><a href="">SERVICE</a></span>
-						</center>
-						<center>
-							<hr class="orange-center-thin w-40" />
-						</center>
-						<div class="event-div w-100">
-							<div>
-								<img style="height: 50%" class="w-100"
-									src="resources/images/service.jpg">
-							</div>
-							<hr class="none" />
-							<div class="d-flex flex-row event-content">
-								<div>
-									<i class="fas fa-hand-holding-heart"></i>
-								</div>
-								<div class="event-text">
-									<span>Operation
-										Friendship</span>&nbsp;
-									<button type="button" class="sponsor-btn" onclick="window.open('https://www.google.com/maps/place/Operation+Friendship+Seniors+Society/@53.5513619,-113.4835595,15z/data=!4m5!3m4!1s0x0:0xb88209b5c486f14b!8m2!3d53.5513619!4d-113.4835595');">
-										<i class="fas fa-map-marker-alt"></i>&nbsp;Location
-									</button>
-								</div>
-							</div>
-							<hr class="none" />
-							<div class="d-flex flex-row event-content">
-								<div>
-									<i class="fas fa-hand-holding-heart"></i>
-								</div>
-								<div class="event-text">
-									<span>Ronald McDonald House</span>&nbsp;
-									<button type="button" class="sponsor-btn" onclick="window.open('https://www.google.com/maps/place/Ronald+McDonald+House+Charities%C2%AE+Alberta/@53.5139981,-113.5068654,15z/data=!4m2!3m1!1s0x0:0x244617e0681c5ad0?sa=X&ved=2ahUKEwjuw5zJnK_qAhUGrZ4KHa5WA14Q_BIwCnoECBEQCA');">
-										<i class="fas fa-map-marker-alt"></i>&nbsp;Location
-									</button>
-								</div>
-							</div>
-							<hr class="none" />
-							<div class="d-flex flex-row event-content">
-								<div>
-									<i class="fas fa-hand-holding-heart"></i>
-								</div>
-								<div class="event-text">
-									<span> Ladies Service</span>&nbsp;
-									<button type="button" class="sponsor-btn" onclick="window.open('https://www.google.com/maps/place/Sri+Sathya+Sai+Baba+Centre+of+Edmonton/@53.517882,-113.4777399,15z/data=!4m2!3m1!1s0x0:0x3070cf84a887bc00?sa=X&ved=2ahUKEwjBq83snK_qAhVEnp4KHTp4CMcQ_BIwGHoECBMQCA');">
-										<i class="fas fa-map-marker-alt"></i>&nbsp;Location
-									</button>
-								</div>
-							</div>
-							<hr class="none" />
-							<div class="d-flex flex-row event-content">
-								<div>
-									<i class="fas fa-hand-holding-heart"></i>
-								</div>
-								<div class="event-text">
-									<span> Food Bank Donations</span>&nbsp;
-									
-								</div>
-							</div>
-							<br />
-						</div>
-					</div>
-				</div>
-			</div> -->
-				<div class="d-flex flex-row middle-div justify-content-center">
-					<div class="col-lg-6 col-sm-8 flex-column events">
-						<div class="middle-box rounded">
-							<center>
-								<span class="box-heading"><a href="">EDUCATION</a></span>
-							</center>
-							<center>
-								<hr class="orange-center-thin w-40" />
-							</center>
-							<div class="event-div w-100">
-								<div>
-									<img class="events-img" src="resources/images/education.jpg">
-								</div>
-								<hr class="none" />
-								<div class="d-flex flex-row event-content">
-									<div>
-										<i class="fas fa-book-open"></i>
-									</div>
-									<div class="event-text">
-										<span>Sundays, 1030 AM - Sathya Sai Spiritual Education
-											for students (SSSE)</span>
-									</div>
-								</div>
-								<!--<hr class="none" />
-								<div class="d-flex flex-row event-content">
-									<div>
-										<i class="fas fa-book-open"></i>
-									</div>
-									<div class="event-text">
-										<span>Wednesdays, 7:30 PM - Study circle on zoom</span>
-										<button type="button" class="sponsor-btn"
-											onclick="window.open('https://us02web.zoom.us/j/88429117768?pwd=RlozdVhkUFNUQS9mZUR3Ky9kcU9WQT09#success')">Join</button>
-									</div> 
-								</div>-->
-
-								<!-- <div class="d-flex flex-row event-content">
-									<div>
-										<i class="fas fa-book-open"></i>
-									</div>
-									<div class="event-text">
-										<span>Sundays, 10:15 AM - Study circle for adults</span>
-									</div>
-								</div>-->
-								<br />
-							</div>
-						</div>
-					</div>
-				<!--	<div class="col-lg-6 col-sm-8 events">
-						<div class="middle-box rounded">
-							<center>
-								<span class="box-heading"><a href="">PRESIDENT'S
-										PEN&nbsp;<i class="fas fa-pen"></i>..
-								</a></span>
-							</center>
-							<center>
-								<hr class="orange-center-thin w-40" />
-							</center>
-							<div class="event-div w-100 padding-1">
-								<b><p>Sai Ram!
-									<p>
-										My humble Pranams to our beloved Bhagawan Sri Sathya Sai Baba.
-										<p>			
-											MOTHER'S LOVE AND DIVINE GRACE.
-"Embodiments of Love! There is no nobler quality in the world than love. It is wisdom. It is righteousness. It is wealth. It is Truth. Everything is permeated with love. Everything in the cosmos arises from love, grows by love and merges in love. Every human being is born from the mother's womb. He is fostered by the mother's love and enjoys many things in life because of the mother. He enjoys all happiness in life because of mother's love. 
-Hence, there is no higher divinity than the mother. But this divinity relates to the body alone." BABA 
-
-
-									 
-<div class="text-right padding-right">
-										<a href="president.html">READ MORE</a>
-									</div> </b>
-							</div>
-						</div>
-					</div> -->
-				</div>
-
-				<!-- Begin of desktop vahini -->
-				<div
-					class="d-flex flex-row middle-div justify-content-center desktop-show">
-					<div class="col-lg-12 col-sm-16 flex-column events">
-						<div class="d-flex flex-row vahini-box w-100 rounded">
-							<div class="col-lg-4 col-sm-5 flex-column w-33 series">
-								<div class="event-div padding-0 w-100">
-									<div class="d-flex flex-row event-content w-100 padding-0">
-										<div class="w-100">
-											<img class="vahini-img" src="resources/images/gita.jpg"
-												alt="prema vahini" />
-											<div class="padding-1 w-100 flex flex-shrink">
-												<button type="button" class="sponsor-btn w-100"
-													onclick="window.open('https://radiosai.org/program/listen.php?f=TL_LIVE_2018_09_13_09_7_30PM_TO_8_30PM.mp3')">
-													<span class="flex-shrink w-100">Geetha Series,
-														Slokas 1 to 6</span>
-												</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-5 flex-column w-33 series">
-								<div class="event-div padding-0 w-100">
-									<div class="d-flex flex-row event-content w-100 padding-0">
-										<div class="w-100">
-											<img class="vahini-img" src="resources/images/dharma.jpg"
-												alt="prema vahini" />
-											<div class="padding-1">
-												<button type="button" class="sponsor-btn w-100"
-													onclick="window.open('http://www.sathyasai.org/sites/default/files/pages/discourse-writing/vahini/dharma-vahini/dharma-vahini.pdf')">
-													Read Dharma Vahini e-book</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-5 flex-column w-33 series">
-								<div class="event-div padding-0 w-100">
-									<div class="d-flex flex-row event-content w-100 padding-0">
-										<div class="w-100">
-											<img class="vahini-img" src="resources/images/prema.jpg"
-												alt="prema vahini" />
-											<div class="padding-1">
-												<button type="button" class="sponsor-btn w-100"
-													onclick="window.open('http://www.sathyasai.org/sites/default/files/pages/discourse-writing/vahini/prema-vahini/prema-vahini.pdf')">
-													Read Prema Vahini e-book</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- End of desktop vahini -->
-
-			<!-- Begin of mobile vahini -->
-			<div class="events mobile-show">
-				<div class="d-flex flex-row vahini-box rounded">
-					<div id="seriescarousel" class="carousel slide"
-						data-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<div class="col-lg-4 col-sm-5 flex-column series">
-									<div class="event-div padding-0 w-100">
-										<div class="d-flex flex-row event-content w-100 padding-0">
-											<div class="w-100">
-												<img class="vahini-img" src="resources/images/prema.jpg"
-													alt="prema vahini" />
-												<div class="padding-1">
-													<button type="button" class="sponsor-btn"
-														onclick="window.open('http://www.sathyasai.org/sites/default/files/pages/discourse-writing/vahini/prema-vahini/prema-vahini.pdf')">
-														Read Prema Vahini e-book</button>
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-
-							<div class="carousel-item">
-								<div class="col-lg-4 col-sm-5 flex-column series">
-									<div class="d-flex flex-row event-content w-100 padding-0">
-										<div class="w-100">
-											<img class="vahini-img" src="resources/images/dharma.jpg"
-												alt="prema vahini" />
-											<div class="padding-1">
-												<button type="button" class="sponsor-btn"
-													onclick="window.open('http://www.sathyasai.org/sites/default/files/pages/discourse-writing/vahini/dharma-vahini/dharma-vahini.pdf')">
-													Read Dharma Vahini e-book</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="carousel-item">
-								<div class="col-lg-4 col-sm-5 flex-column series">
-									<div class="event-div padding-0 w-100">
-										<div class="d-flex flex-row event-content w-100 padding-0">
-											<div class="w-100">
-												<img class="vahini-img" src="resources/images/gita.jpg"
-													alt="prema vahini" />
-												<div class="padding-1">
-													<button type="button" class="sponsor-btn"
-														onclick="window.open('https://radiosai.org/program/listen.php?f=TL_LIVE_2018_09_13_09_7_30PM_TO_8_30PM.mp3')">
-														Listen to Geetha Series, Slokas 1 to 6</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<a class="carousel-control-prev" href="#seriescarousel"
-							role="button" data-slide="prev"> <span
-							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-							class="sr-only">Previous</span>
-						</a> <a class="carousel-control-next" href="#seriescarousel"
-							role="button" data-slide="next"> <span
-							class="carousel-control-next-icon" aria-hidden="true"></span> <span
-							class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-			</div>
-			<!-- End of mobile vahini carroussel -->
-
-			<!-- Begin of desktop gallery -->
-			<div class="col-md-3 side-div-out">
-				<div class="side-div-in bottom-margin-10" id="edmCalendar">
-					<span class="bold-text"> EDMONTON CENTER CALENDAR </span>
-					<hr class="pink" />
-					<iframe src="https://calendar.google.com/calendar/embed?height=500&wkst=1&ctz=America%2FEdmonton&showPrint=0&src=c2FpZWRtb250b25AZ21haWwuY29t&color=%23039BE5" 
-					style="border:solid 1px #777" width="100%" height="300" 
-					frameborder="0" scrolling="no"></iframe>
-					
-				</div>
-				<div class="side-div-in bottom-margin-10 desktop-show">
-					<br /> <span class="bold-text"> EDMONTON SAI CENTER -
-						GALLERY </span>
-					<hr class="pink" />
-					<div class="rounded pink-back w-100">
-						<span class="bold-text">HUMAN VALUES DAY, 2018</span>
-						<hr class="orange" />
-						<div class="small-gallery">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0890.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0909.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0912.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0912.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0913.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0914.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0915.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0916.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0917.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0918.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0919.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0920.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0921.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0922.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0923.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0924.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0925.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0926.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0927.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0928.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0929.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0930.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0931.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0932.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0933.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0934.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0935.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0936.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0937.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0938.JPG">
-							<img class="gallery1"
-								src="resources/images/gallery1/DSC_0939.JPG"> <img
-								class="gallery1" src="resources/images/gallery1/DSC_0940.JPG">
-
-						</div>
-					</div>
-					<hr class="none" />
-					<div class="rounded pink-back w-100">
-						<span class="bold-text">SSE Group 3 Art Work on Mother
-							Nature</span>
-						<hr class="orange" />
-						<div class="small-gallery">
-							<img class="gallerysse"
-								src="resources/images/gallery3/Group3.png"> <img
-								class="gallerysse" src="resources/images/gallery3/Group31.jpg">
-							<img class="gallerysse"
-								src="resources/images/gallery3/Group32.jpg"> <img
-								class="gallerysse" src="resources/images/gallery3/Group33.jpg">
-							<img class="gallerysse"
-								src="resources/images/gallery3/Group34.png">
-						</div>
-					</div>
-					<hr class="none" />
-					<div class="rounded pink-back">
-						<span class="bold-text">INTERFAITH UNITY WALK</span>
-						<hr class="orange" />
-						<div class="small-gallery">
-							<img class="gallery2"
-								src="resources/images/gallery2/IMG_0676.jpg"> <img
-								class="gallery2" src="resources/images/gallery2/IMG_0678.jpg">
-							<img class="gallery2"
-								src="resources/images/gallery2/IMG_0679.jpg"> <img
-								class="gallery2" src="resources/images/gallery2/IMG_0688.jpg">
-							<img class="gallery2"
-								src="resources/images/gallery2/IMG_0693.jpg"> <img
-								class="gallery2" src="resources/images/gallery2/IMG_0694.jpg">
-							<img class="gallery2"
-								src="resources/images/gallery2/IMG_0724.jpg"> <img
-								class="gallery2" src="resources/images/gallery2/IMG_0727.jpg">
-							<img class="gallery2"
-								src="resources/images/gallery2/IMG_7600.jpg"> <img
-								class="gallery2" src="resources/images/gallery2/IMG_7604.jpg">
-							<img class="gallery2"
-								src="resources/images/gallery2/IMG_7605.jpg"> <img
-								class="gallery2" src="resources/images/gallery2/IMG_7606.jpg">
-							<img class="gallery2"
-								src="resources/images/gallery2/IMG_7610.jpg"> <img
-								class="gallery2" src="resources/images/gallery2/IMG_7612.jpg">
-
-						</div>
-					</div>
-					<!-- <hr class="none" />
-				<div class="rounded pink-back">
-					<span class="bold-text">RETREAT PICTURES</span>
-					<hr class="orange" />
-					<div class="small-gallery">
-						<img class="gallery3"
-							src="resources/images/banner1.jpg"> <img
-							class="gallery3" src="resources/images/banner2.jpg">
-						<img class="gallery3"
-							src="resources/images/banner3.jpg"> <img
-							class="gallery3" src="resources/images/banner4.jpg">
-						<img class="gallery3"
-							src="resources/images/banner5.jpg">
-
-					</div>
-				</div> -->
-					<hr class="none" />
-					<div class="rounded pink-back">
-						<span class="bold-text">WALK FOR VALUES</span>
-						<hr class="orange" />
-						<iframe width="100%" height="100%"
-							src="https://www.youtube.com/embed/hJmRtGu6ovI" frameborder="0"
-							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen></iframe>
-					</div>
-				</div>
-				<!-- End of desktop gallery -->
-
-				<!-- mobile gallery -->
-				<div class="side-div-in bottom-margin-10 mobile-show">
-					<br />
-					<div id="gallerycarousel" class="carousel slide"
-						data-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<span class="bold-text"> EDMONTON SAI CENTER - GALLERY </span>
-								<hr class="pink" />
-								<div class="rounded pink-back w-100">
-									<span class="bold-text">HUMAN VALUES DAY, 2018</span>
-									<hr class="orange" />
-									<div class="small-gallery">
-										<img class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0890.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0909.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0912.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0912.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0913.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0914.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0915.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0916.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0917.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0918.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0919.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0920.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0921.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0922.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0923.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0924.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0925.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0926.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0927.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0928.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0929.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0930.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0931.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0932.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0933.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0934.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0935.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0936.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0937.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0938.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0939.JPG"> <img
-											class="mobilegallery1"
-											src="resources/images/gallery1/DSC_0940.JPG">
-
-									</div>
-								</div>
-								<hr class="none" />
-							</div>
-							<div class="carousel-item">
-								<div class="rounded pink-back w-100">
-									<span class="bold-text">SSE Group 3 Art Work on Mother
-										Nature</span>
-									<hr class="orange" />
-									<div class="small-gallery">
-										<img class="mobilegallerysse"
-											src="resources/images/gallery3/Group3.png"> <img
-											class="mobilegallerysse"
-											src="resources/images/gallery3/Group31.jpg"> <img
-											class="mobilegallerysse"
-											src="resources/images/gallery3/Group32.jpg"> <img
-											class="mobilegallerysse"
-											src="resources/images/gallery3/Group33.jpg"> <img
-											class="mobilegallerysse"
-											src="resources/images/gallery3/Group34.png">
-									</div>
-								</div>
-								<hr class="none" />
-							</div>
-							<div class="carousel-item">
-								<div class="rounded pink-back">
-									<span class="bold-text">INTERFAITH UNITY WALK</span>
-									<hr class="orange" />
-									<div class="small-gallery">
-										<img class="mobilegallery2"
-											src="resources/images/gallery2/IMG_0676.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_0678.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_0679.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_0688.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_0693.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_0694.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_0724.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_0727.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_7600.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_7604.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_7605.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_7606.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_7610.jpg"> <img
-											class="mobilegallery2"
-											src="resources/images/gallery2/IMG_7612.jpg">
-
-									</div>
-								</div>
-
-								<hr class="none" />
-							</div>
-							<div class="carousel-item">
-								<div class="rounded pink-back">
-									<span class="bold-text">WALK FOR VALUES</span>
-									<hr class="orange" />
-									<iframe width="100%" height="100%"
-										src="https://www.youtube.com/embed/hJmRtGu6ovI"
-										frameborder="0"
-										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-										allowfullscreen></iframe>
-								</div>
-							</div>
-						</div>
-						<a class="carousel-control-prev" href="#gallerycarousel"
-							role="button" data-slide="prev"> <span
-							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-							class="sr-only">Previous</span>
-						</a> <a class="carousel-control-next" href="#gallerycarousel"
-							role="button" data-slide="next"> <span
-							class="carousel-control-next-icon" aria-hidden="true"></span> <span
-							class="sr-only">Next</span>
-						</a>
-					</div>
-
-				</div>
-				<!-- end of mobile gallery -->
-<!--
-				<div class="side-div-in">
-					<span class="bold-text"> SAI VIDEOS</span>
-					<hr class="pink" />
-					<div class="rounded pink-back w-100">
-						<iframe width="100%" height="100%"
-							src="https://www.youtube.com/embed/Wx73sivg7qA"
-							title="YouTube video player" frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen></iframe>
-					</div>
-				</div> -->
-			</div>
-
-		</div>
-		<center>
-			<hr class="orange-center w-20 mobile-w-20" />
-		</center>
-
-		<!-- Desktop Articles -->
-		<div class="article desktop-show">
-			<hr class="none" />
-			<div class="outer-center-content">
-				<div class="center-content w-100">
-					<span class="hp-subtitles">Latest Articles</span>
-					<hr class="none" />
-					<div class="d-flex flex-row w-100">
-						<div class="col-lg-3 col-sm-6 flex-column w-25 flex-shrink">
-							<div class="d-flex flex-row">
-								<div class="article-content event-div">
-									 
-									<div>
-										<p><img src="resources/images/SingHisGlory.png"
-											style="height: 200%; width: 100%" alt="SHG" /> </p>
-										<div class="event-text article-text">
-											Sing His Glory<br /> <span>Published
-												on: December 7, 2024</span>&nbsp; <br />
-										 
-											<span>A Family Bhajan Sadhana - Offering 100K bhajans collectively as a gift to Bhagawan Sri Sathya Sai Baba on His 100th Birthday! Please click on the link below for more information </span>
-											<li class="other-text"><a
-												href="https://sathyasai.ca/glory//"
-												class="text-custom-black" target="_blank">Sing His Glory</a></li>
-										</div>
-
-										 
-									</div>
-
-									<!-- <br />
-							<div class="text-right padding-right"><a href="">READ MORE</a></div> -->
-									<hr class="none" />
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-sm-6 flex-column w-25 flex-shrink">
-							<div class="d-flex flex-row">
-								<div class="article-content event-div">
-									<div>
-										<iframe width="100%" height="100%"
-										src="https://www.youtube.com/embed/jkTYBZkSOYk?si=i74EJU20TkJ6_-7x" 
-										title="YouTube video player" frameborder="0" allow="accelerometer;
-										 autoplay; clipboard-write; encrypted-media; gyroscope;
-										 picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-									</div>
-									<div>
-										<div class="event-text article-text">
-											Trees of Love<br /><span>Published
-												on: Dec 7, 2024</span>   &nbsp; <br />
-											 
-											<span> The Goal: Plant and Nurture One Hundred Thousand Trees by November 2025.
-
-										 Lets get all our volunteers across Canada together to plant 100k trees to commemorate our founder Sri Sathya Sai Baba’s 100th birthday.  Please click on the link below for more information </span>
-										 <li class="other-text"><a
-											href="https://treesoflove.ca//"
-											class="text-custom-black" target="_blank">Trees of Love </a></li>
-										</div>
-										<!--<div class="text-right padding-right">
-											<a
-												href="https://media.radiosai.org/journals/vol_14/01NOV16/True-Love-Is-An-Art-Birthday-Audio_Special.htm"
-												target="_blank">READ MORE</a>
-										</div>  -->
-
-									</div>
-
-									<!-- <br />
-							<div class="text-right padding-right"><a href="">READ MORE</a></div> -->
-									<hr class="none" />
-								</div>
-							</div>
-						</div>
-						<!-- <div class="d-flex flex-row w-100">
-						<div class="col-lg-3 col-sm-6 flex-column w-25 flex-shrink">
-							<div class="d-flex flex-row h-100">
-								<div class="article-content event-div">
-									<div class="article-content-img">
-										
-										<iframe width="100%" height="100%"
-											src="https://www.youtube.com/embed/RaR8RrjrNRE"
-											frameborder="0"
-											allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-											allowfullscreen></iframe>
-
-									</div>
-									<div>
-										<div class="event-text article-text">
-											Why Fear when Swami is here!<br /> <span>Published
-												on: November 3rd, 2020</span>&nbsp; <br />
-											<hr class="article-hr" />
-											<span> Sai Ram dear readers! More than ever we need to
-												keep our full faith and trust in Swami during these
-												difficult times that world is facing. Please watch the
-												video. </span>
-
-										</div>
-									</div>
-
-									<!-- <br />
-							<div class="text-right padding-right"><a href="">READ MORE</a></div> -->
-						<!-- <hr class="none" />
-				</div>
-			</div>
-		</div>-->
-						
-						<div class="col-lg-3 col-sm-6 flex-column w-25 flex-shrink">
-							<div class="d-flex flex-row">
-								<div class="article-content event-div">
-									<div>
-										<iframe width="100%" height="100%"
-											src="https://www.youtube.com/embed/fWR9pX1y5BU"
-											title="YouTube video player" frameborder="0"
-											allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-											allowfullscreen></iframe>
-									</div>
-									<div>
-										<div class="event-text article-text">
-											Sai Asthottara Satha Namavali<br /> <span>Published
-												on: April 24th, 2021</span>&nbsp; <br />
-											 
-											<span> There is no better offering to Swami other than
-												chanting His Names and thus sanctify our time. And may this
-												chanting become our regular Sadhana too in our lives. </span>
-										</div>
-
-									</div>
-
-									<!-- <br />
-							<div class="text-right padding-right"><a href="">READ MORE</a></div> -->
-									<hr class="none" />
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-sm-6 flex-column w-25 flex-shrink">
-							<div class="d-flex flex-row">
-								<div class="article-content w-100 event-div">
-									<div>
-										<img class="article-content-img w-100"
-											src="resources/images/Singing-Bhajans-Akhanda-Bhajan-Radiosai.jpg">
-									</div>
-									<div>
-										<div class="event-text article-text">
-											Learn a Bhajan a week<br /> <span>Published on:
-												November 3rd, 2020</span>&nbsp; <br />
-											 
-											<span> Here is an amazing opportunity to learn singing
-												bhajans from Radio Sai tutor at the convinience of your
-												home! Please click on READ MORE.</span>
-										</div>
-									</div>
-
-									<br />
-									<div class="text-right padding-right">
-										<a
-											href="https://media.radiosai.org/journals/vol_18/01JUN20/Seshashaila-Vasa-Narayana-Bhajan-Tutor.htm"
-											target="_blank">READ MORE</a>
-									</div>
-									<hr class="none" />
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<!-- End of desktop articles -->
-
-		<!--  begin of mobile articles -->
-		<div class="article mobile-show">
-			<hr class="none" />
-			<div class="outer-center-content">
-				<div class="center-content w-100">
-					<span class="hp-subtitles">Latest Articles</span>
-					<hr class="none" />
-					<div class="d-flex flex-row w-100">
-						<div id="articlecarousel" class="carousel slide"
-							data-ride="carousel">
-							<div class="carousel-inner">
-								<!-- <div class="carousel-item active">
-									<div class="col-lg-3 col-sm-6 flex-column">
-										<div class="d-flex flex-row h-100">
-											<div class="article-content event-div">
-												<div class="article-content-img">
-													
-													<iframe width="100%" height="100%"
-														src="https://www.youtube.com/embed/RaR8RrjrNRE"
-														frameborder="0"
-														allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-														allowfullscreen></iframe>
-
-												</div>
-												<div>
-													<div class="event-text article-text">
-														Why Fear when Swami is here!<br /> <span>Published
-															on: November 3rd, 2020</span>&nbsp; <br />
-														<hr class="article-hr" />
-														<span> Sai Ram dear readers! More than ever we need
-															to keep our full faith and trust in Swami during these
-															difficult times that world is facing. Please watch the
-															video. </span>
-
-													</div>
-												</div>												
-												<hr class="none" />
-											</div>
-										</div>
-									</div>
-								</div>-->
-								<div class="carousel-item active">
-									<div class="col-lg-3 col-sm-6 flex-column">
-										<div class="d-flex flex-row">
-											<div class="article-content event-div">
-												<div>
-													<iframe width="100%" height="100%"
-														src="https://www.youtube.com/embed/DByWWlFzElI"
-														title="YouTube video player" frameborder="0"
-														allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-														allowfullscreen></iframe>
-												</div>
-												<div>
-													<div class="event-text article-text">
-														Permeating planet with Love<br /> <span>Published
-															on: Dec 4th, 2021</span>&nbsp; <br />
-														<hr class="article-hr" />
-														<span> Please watch this video made by our dear sai
-															sister Nalina Kumar. Sister Nalina has been working
-															tirelessly to bring this forward as there has been an
-															impending need to spread love all around the world. If
-															all Sai devotees join in and do this meditation for a few
-															minutes everyday, I assure you that we will change the
-															sad state of affairs for the planet, people and 8 million
-															species. Please take time to watch. Meditation itself is
-															very short. 5 to 10 min. </span>
-													</div>
-												</div>
-												<!-- <br />
-												<div class="text-right padding-right">
-													<a
-														href="https://mcusercontent.com/7a91a5ba491b1c4a0f3be5370/files/79537d5e-0ee1-1580-fc2b-40f06069bc96/AvatarDeclarationDayStudyGuide.pdf"
-														target="_blank">READ MORE</a>
-												</div> -->
-												<!-- <br />
-							<div class="text-right padding-right"><a href="">READ MORE</a></div> -->
-												<hr class="none" />
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="carousel-item">
-									<div class="col-lg-3 col-sm-6 flex-column">
-										<div class="d-flex flex-row">
-											<div class="article-content event-div">
-												<div>
-													<iframe width="100%" height="100%"
-														src="https://www.youtube.com/embed/KzWQw17-l5U"
-														title="YouTube video player" frameborder="0"
-														allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-														allowfullscreen></iframe>
-												</div>
-												<div>
-													<div class="event-text article-text">
-														Christmas Discourse Satya Sai Baba<br /> <span>Published
-															on: December 4th, 2021</span>&nbsp; <br />
-														<hr class="article-hr" />
-														<span> Sai Ram to all of you. The video you are
-															about to watch is an excerpt of Sathya Sai Baba's
-															Discourse from Christmas in 1998 (20 years ago from
-															2018). Here Swami explains the significance of Christmas
-															Celebrations in Prashanthi Nilayam. </span>
-													</div>
-
-												</div>
-
-												<!-- <br />
-							<div class="text-right padding-right"><a href="">READ MORE</a></div> -->
-												<hr class="none" />
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="carousel-item">
-									<div class="col-lg-3 col-sm-6 flex-column">
-										<div class="d-flex flex-row">
-											<div class="article-content event-div">
-												<div>
-													<iframe width="100%" height="100%"
-														src="https://www.youtube.com/embed/fWR9pX1y5BU"
-														title="YouTube video player" frameborder="0"
-														allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-														allowfullscreen></iframe>
-												</div>
-												<div>
-													<div class="event-text article-text">
-														Sai Asthottara Satha Namavali<br /> <span>Published
-															on: April 24th, 2021</span>&nbsp; <br />
-														<hr class="article-hr" />
-														<span> There is no better offering to Swami other
-															than chanting His Names and thus sanctify our time. And
-															may this chanting become our regular Sadhana too in our
-															lives. </span>
-													</div>
-													<!-- <div class="text-right padding-right">
-											<a
-												href="https://lists.sathyasai.org/archive/HOpZgHscZ/FE9Z8opNv/vjYPPacL-zO"
-												target="_blank">READ MORE</a>
-										</div> -->
-												</div>
-
-												<!-- <br />
-							<div class="text-right padding-right"><a href="">READ MORE</a></div> -->
-												<hr class="none" />
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="carousel-item">
-									<div class="col-lg-3 col-sm-6 flex-column">
-										<div class="d-flex flex-row">
-											<div class="article-content w-100 event-div">
-												<div>
-													<img class="article-content-img w-100"
-														src="resources/images/Singing-Bhajans-Akhanda-Bhajan-Radiosai.jpg">
-												</div>
-												<div>
-													<div class="event-text article-text">
-														Learn a Bhajan a week<br /> <span>Published on:
-															November 3rd, 2020</span>&nbsp; <br />
-														<hr class="article-hr" />
-														<span> Here is an amazing opportunity to learn
-															singing bhajans from Radio Sai tutor at the convinience
-															of your home! Please click on READ MORE.</span>
-													</div>
-												</div>
-
-												<br />
-												<div class="text-right padding-right">
-													<a target="_blank"
-														href="https://media.radiosai.org/journals/vol_18/01JUN20/Seshashaila-Vasa-Narayana-Bhajan-Tutor.htm">READ
-														MORE</a>
-												</div>
-												<hr class="none" />
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<a class="carousel-control-prev" href="#articlecarousel"
-									role="button" data-slide="prev"> <span
-									class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-									class="sr-only">Previous</span>
-								</a> <a class="carousel-control-next" href="#articlecarousel"
-									role="button" data-slide="next"> <span
-									class="carousel-control-next-icon" aria-hidden="true"></span> <span
-									class="sr-only">Next</span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<!-- end of mobile articles -->
-		<div class="container pb-1">
-			<hr class="none" />
-			<div class="d-flex flex-row">
-				<div class="col-lg-3 col-sm-6 bottom-logo w-25 flex-shrink">
-					<img src="resources/images/other.jpg" class="w-100" alt="logo" />
-				</div>
-				<div class="col-lg-3 col-sm-6 footer-mobile w-25 flex-shrink">
-					<div class="footer-head">
-						<h5 class="header">Other Sites</h5>
-						<hr class="orange-center text-left w-30" />
-					</div>
-					<div class="footer">
-						<ul class="custom links">
-							<li class="other-text"><a href="http://sathyasai.org/"
-								class="text-custom-black" target="_blank">Sathya Sai
-									International</a></li>
-							<li class="other-text"><a href="http://sathyasai.ca/"
-								class="text-custom-black" target="_blank">Sathya Sai Canada</a></li>
-							<li class="other-text"><a
-								href="https://www.prasanthinilayam.in/"
-								class="text-custom-black" target="_blank">Prasanthi Nilayam,
-									Puttaparthi</a></li>
-							
-							<li class="other-text"><a
-								href="https://www.sssmediacentre.org/" class="text-custom-black"
-								target="_blank">Radio Sai</a></li>
-								<li class="other-text"><a
-									href="https://www.instagram.com/saiedmonton/profilecard/?igsh=MWY3MDZ0aTkwY3ludg%3D%3D/"
-									class="text-custom-black" target="_blank">Sai Edmonton on Instagram</a></li>
-
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 footer-mobile w-25 flex-shrink">
-					<div class="footer-head" id="edmContactUs">
-						<h5 class="header">Contact Us</h5>
-						<hr class="orange-center text-left w-30" />
-
-					</div>
-					<div class="footer-content w-100">
-						<ul class="custom links">
-							<li class="other-text"><a href="tel:7804377243"> <i
-									class="fas fa-phone-alt"></i> <span class="ml-2">(780)
-										437 7243</span>
-							</a></li>
-							<li class="other-text"><a
-								href="https://www.google.com/maps/place/Sri+Sathya+Sai+Baba+Centre+of+Edmonton/@53.517882,-113.4777399,15z/data=!4m5!3m4!1s0x0:0x3070cf84a887bc00!8m2!3d53.517882!4d-113.4777399"
-								target="_blank"> <i class="fas fa-map-marker-alt"></i> <span
-									class="ml-2">&nbsp;9619 82nd Ave NW, Edmonton, AB, <span
-										class="mobile-space">&nbsp;</span>T6C 0Z9
-								</span>
-							</a></li>
-							<li class="other-text"><a
-								href="mailto:saicenteredmonton@telus.net"> <i
-									class="fas fa-envelope"></i> <span class="ml-2">saicenteredmonton@telus.net</span>
-							</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 footer-mobile w-25 flex-shrink">
-					<div class="footer-head">
-						<h5 class="header">Stay in touch!</h5>
-						<hr class="orange-center text-left w-50" />
-						<div class="footer-content">Click below to sign up for our
-							weekly emails!</div>
-						<div class="footer-content">
-							<a
-								href="https://saibabacentre-edmonton.us13.list-manage.com/subscribe?u=7a91a5ba491b1c4a0f3be5370&id=23b2161e48"
-								target="_blank"><i class="fas fa-envelope-open-text fa-6x"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr class="orange-thin" />
-		<!--<div class="bottom-footer">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-12">
-						<div class="hr-2 opacity-1"></div>
-					</div>
-					<div class="col-lg-6 col-md-12 text-center text-lg-left mb-md-10">
-						<ul class="footer-social">
-							<li class="other-text"><a
-								href="https://www.facebook.com/saicentreedmonton/"
-								target="_blank"><i class="fab fa-facebook-f fa-1x"></i></a></li>
-							<li class="other-text"><a
-								href="https://www.youtube.com/channel/UC_PlUutiUyR8PNBlKMzJCtQ/featured"
-								target="_blank"><i class="fab fa-youtube"></i></a></li>
-
-						</ul>
-					</div>
-					<div
-						class="col-lg-6 col-md-12 text-center text-lg-right other-text fs-12">
-						<i class="fas fa-copyright"></i>&nbsp;2020 Sathya Sai Baba Center
-						of Edmonton, All Rights Reserved
-					</div>
-				</div>
-			</div>
-			<a href="#"
-				class="btn scroll-btn f-right flex-center z-25 opacity-0 opacity-10">
-				<i class="fas fa-arrow-up"></i>
-			</a>
-		</div> -->
-	</div>
+
+  <!-- ===== TOP INFO BAR ===== -->
+  <div id="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:7804377243">
+            <i class="fas fa-phone"></i>
+            (780) 437-7243
+          </a>
+          <a href="mailto:saicenteredmonton@telus.net">
+            <i class="fas fa-envelope"></i>
+            saicenteredmonton@telus.net
+          </a>
+          <a href="https://www.google.com/maps/place/Sri+Sathya+Sai+Baba+Centre+of+Edmonton/@53.517882,-113.4777399,15z" target="_blank" rel="noopener">
+            <i class="fas fa-map-marker-alt"></i>
+            9619 82nd Ave NW, Edmonton, AB
+          </a>
+        </div>
+        <div class="topbar-social">
+          <a href="https://www.facebook.com/saicentreedmonton/" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/channel/UC_PlUutiUyR8PNBlKMzJCtQ/featured" target="_blank" rel="noopener" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/saiedmonton/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://mixlr.com/sai-centre-edmonton/" target="_blank" rel="noopener" title="Live Bhajans on Mixlr"><i class="fas fa-broadcast-tower"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+          <img src="https://saibabacentre-edmonton.ca/resources/images/ssio-logo.png" alt="Sathya Sai Centre Logo">
+          <div class="nav-brand-text">
+            Sri Sathya Sai Baba Centre
+            <span>Edmonton · SSIO Canada, Zone 1, Region 13</span>
+          </div>
+        </a>
+        <button id="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li class="mg-nav-item-has-children">
+            <a href="javascript:void(0)" onclick="toggleDropdown(this)">Wings <i class="fas fa-chevron-down" style="font-size:0.65rem"></i></a>
+            <ul class="dropdown-menu" id="wings-menu">
+              <li><a href="https://sathyasai.ca/devotion/" target="_blank" rel="noopener">Devotion</a></li>
+              <li><a href="https://sathyasai.ca/education/" target="_blank" rel="noopener">Education</a></li>
+              <li><a href="https://sathyasai.ca/service/" target="_blank" rel="noopener">Service</a></li>
+              <li><a href="https://sathyasai.ca/ya/" target="_blank" rel="noopener">Young Adults</a></li>
+              <li><a href="http://www.saimedical.ca/" target="_blank" rel="noopener">Medical</a></li>
+            </ul>
+          </li>
+          <li class="mg-nav-item-has-children">
+            <a href="javascript:void(0)" onclick="toggleDropdown(this)">About <i class="fas fa-chevron-down" style="font-size:0.65rem"></i></a>
+            <ul class="dropdown-menu" id="about-menu">
+              <li><a href="https://sathyasai.org/sathya-sai/life-and-legacy" target="_blank" rel="noopener">Sathya Sai</a></li>
+              <li><a href="http://saibooksonline.org/" target="_blank" rel="noopener">Book &amp; Information Center</a></li>
+              <li><a href="https://sathyasai.ca/poc/" target="_blank" rel="noopener">Public Outreach Committee</a></li>
+            </ul>
+          </li>
+          <li><a href="#edmCalendar">Calendar</a></li>
+          <li><a href="#edmContactUs">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO CAROUSEL ===== -->
+  <section id="hero" aria-label="Hero banner">
+    <div class="hero-slide active">
+      <img src="https://saibabacentre-edmonton.ca/resources/images/banner1.jpg" alt="Sai Centre Edmonton">
+    </div>
+    <div class="hero-slide">
+      <img src="https://saibabacentre-edmonton.ca/resources/images/banner2.jpg" alt="Sai Centre Edmonton">
+    </div>
+    <div class="hero-slide">
+      <img src="https://saibabacentre-edmonton.ca/resources/images/banner4.jpg" alt="Sai Centre Edmonton">
+    </div>
+    <div class="hero-slide">
+      <img src="https://saibabacentre-edmonton.ca/resources/images/banner5.jpg" alt="Sai Centre Edmonton">
+    </div>
+
+    <button class="hero-arrow" id="hero-prev" aria-label="Previous slide" onclick="changeSlide(-1)">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="hero-arrow" id="hero-next" aria-label="Next slide" onclick="changeSlide(1)">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <div class="hero-overlay-btns">
+      <a href="#events" class="btn-hero btn-hero-primary">Upcoming Events</a>
+      <a href="#edmContactUs" class="btn-hero btn-hero-ghost">Contact Us</a>
+    </div>
+
+    <div class="hero-controls" id="hero-dots" role="tablist"></div>
+  </section>
+
+  <!-- ===== EVENTS / ANNOUNCEMENTS ===== -->
+  <section id="events">
+    <div class="container">
+      <p class="section-subtitle">What's On</p>
+      <h2 class="section-title">Events &amp; <span>Announcements</span></h2>
+      <div class="gold-rule"></div>
+
+      <div class="events-grid">
+        <!-- Featured Event -->
+        <div class="event-featured">
+          <img src="https://saibabacentre-edmonton.ca/resources/images/dec_2025.jpeg" alt="Events at the Center" loading="lazy">
+          <div class="event-featured-body">
+            <span class="event-tag">Education</span>
+            <h3>SSE Reopens — September 8, 2024</h3>
+            <p>
+              Weekly classes are on Sundays from 10:30 AM – 12:00 PM. In-person classes will be held at the Sai Centre during Fall (September to November) and Spring (April to June). Classes will be online during Winter (December to March).
+            </p>
+            <p style="margin-top:0.75rem">
+              Gurus are excited to welcome the students. All students and parents are requested to be present on the opening day to get information about the 2024–2025 SSE year.
+            </p>
+            <a href="mailto:sseedmonton@gmail.com" class="btn btn-primary">Register Now</a>
+          </div>
+        </div>
+
+        <!-- Side Notices -->
+        <div class="side-notices">
+          <div class="notice-card">
+            <strong><i class="fas fa-users" style="color:var(--primary);margin-right:0.4rem"></i>Study Circle</strong>
+            Every Wednesday evening at 7:30 PM.<br>
+            Topic: <em>Unity is Divinity, Purity is Enlightenment</em>
+          </div>
+          <div class="notice-card">
+            <strong><i class="fab fa-whatsapp" style="color:#25D366;margin-right:0.4rem"></i>WhatsApp Group</strong>
+            Join the Edmonton Sai Center WhatsApp group to stay connected and receive updates.
+          </div>
+          <div class="notice-card">
+            <strong><i class="fas fa-broadcast-tower" style="color:var(--primary);margin-right:0.4rem"></i>Live Bhajans</strong>
+            Tune into live Sunday Bhajan sessions at 12 PM on
+            <a href="https://mixlr.com/sai-centre-edmonton/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:700">Mixlr</a>.
+          </div>
+          <div class="notice-card">
+            <strong><i class="fas fa-phone" style="color:var(--primary);margin-right:0.4rem"></i>Sing His Glory</strong>
+            A family Bhajan Sadhana — offering 100K bhajans collectively as a gift to Bhagawan Sri Sathya Sai Baba on His 100th Birthday.
+            <a href="https://sathyasai.ca/glory/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:700;display:block;margin-top:0.4rem">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Left: Contact + Executive Team -->
+        <div>
+          <p class="section-subtitle">Who We Are</p>
+          <h2 class="section-title">Sri Sathya Sai Baba<br><span>Centre of Edmonton</span></h2>
+          <div class="gold-rule"></div>
+
+          <div class="about-contact-block">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div class="contact-label">Address</div>
+                <a href="https://www.google.com/maps/place/Sri+Sathya+Sai+Baba+Centre+of+Edmonton/@53.517882,-113.4777399,15z" target="_blank" rel="noopener" class="contact-value">
+                  9619 82nd Ave NW, Edmonton, AB, T6C 0Z9
+                </a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <div class="contact-label">Phone</div>
+                <a href="tel:7804377243" class="contact-value">(780) 437-7243</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:saicenteredmonton@telus.net" class="contact-value">saicenteredmonton@telus.net</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="exec-section">
+            <div class="exec-title">Executive Team 2025 / 2026</div>
+            <div class="exec-table">
+              <div class="exec-row">
+                <span class="exec-role">President</span>
+                <span class="exec-name">Mr. Troy Mangru</span>
+              </div>
+              <div class="exec-row">
+                <span class="exec-role">Vice President</span>
+                <span class="exec-name">Mrs. Payal Punjabi</span>
+              </div>
+              <div class="exec-row">
+                <span class="exec-role">Devotional Wing</span>
+                <span class="exec-name">Mrs. Bhagyalakshmi Venkataraman</span>
+              </div>
+              <div class="exec-row">
+                <span class="exec-role">Service Wing</span>
+                <span class="exec-name">Mr. Somesh Krishnan Murthy</span>
+              </div>
+              <div class="exec-row">
+                <span class="exec-role">Sai Centre Foundation</span>
+                <span class="exec-name">Mr. Anshuman Tyagi</span>
+              </div>
+              <div class="exec-row">
+                <span class="exec-role">Education Wing</span>
+                <span class="exec-name">Mr. Nagasatya Devarakonda</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Thought for the Week -->
+        <div>
+          <div class="thought-card">
+            <div class="thought-eyebrow"><i class="fas fa-om" style="margin-right:0.5rem"></i>Thought for the Week</div>
+            <blockquote>
+              "All that relates to the body is temporary and transient. What one should seek is enduring bliss. Happiness is union with God. Buddha prescribed five duties: good vision, good thoughts, listening to good things, good speech, and good actions. These five-fold duties constitute true spiritual practice (sadhana)."
+            </blockquote>
+            <div class="thought-attr">— Sri Sathya Sai Baba, May 11, 1998</div>
+            <div class="love-serve">
+              <i class="fas fa-heart" style="color:var(--gold-light);margin-right:0.4rem"></i>
+              Love All, Serve All &nbsp;·&nbsp; Help Ever, Hurt Never &nbsp;·&nbsp; <em>— Baba</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACTIVITIES ===== -->
+  <section id="activities">
+    <div class="container">
+      <div class="activities-header">
+        <p class="section-subtitle">Our Wings</p>
+        <h2 class="section-title">Centre <span>Activities</span></h2>
+        <div class="gold-rule center"></div>
+      </div>
+      <div class="activities-grid">
+        <!-- Devotion -->
+        <div class="activity-card">
+          <div class="activity-img-wrap">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/spiritual3.jpg" alt="Devotion Wing" loading="lazy">
+            <span class="activity-badge">Devotion Wing</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-icon"><i class="fas fa-pray"></i></div>
+            <h3>Devotion</h3>
+            <p style="font-size:0.85rem;color:var(--text-mid)">
+              Weekly Satsang, Padhuka Pooja, and Ganesh Abhishekam for spiritual devotees of all backgrounds.
+            </p>
+            <div class="activity-schedule">
+              <div class="schedule-item">
+                <span class="schedule-day">Thursday</span>
+                <span>7:00 PM — Satsang</span>
+              </div>
+              <div class="schedule-item">
+                <span class="schedule-day">Saturday</span>
+                <span>7:30 AM — Padhuka Pooja &amp; Ganesh Abhishekam</span>
+              </div>
+              <div class="schedule-item">
+                <span class="schedule-day">Sunday</span>
+                <span>12:00 PM — Satsang</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service -->
+        <div class="activity-card">
+          <div class="activity-img-wrap">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/service.jpg" alt="Service Wing" loading="lazy">
+            <span class="activity-badge">Service Wing</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-icon"><i class="fas fa-hands-helping"></i></div>
+            <h3>Service</h3>
+            <p style="font-size:0.85rem;color:var(--text-mid)">
+              Selfless service to the community through food drives, interfaith walks, and outreach programs — embodying Sai Baba's teaching of Love in Action.
+            </p>
+            <div class="activity-schedule">
+              <div class="schedule-item">
+                <span class="schedule-day">Ongoing</span>
+                <span>Community service activities &amp; outreach</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="activity-card">
+          <div class="activity-img-wrap">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/education.jpg" alt="Education Wing" loading="lazy">
+            <span class="activity-badge">Education Wing</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Education</h3>
+            <p style="font-size:0.85rem;color:var(--text-mid)">
+              Sathya Sai Spiritual Education (SSSE) for children, teaching human values through stories, activities, and silent sitting.
+            </p>
+            <div class="activity-schedule">
+              <div class="schedule-item">
+                <span class="schedule-day">Sunday</span>
+                <span>10:30 AM — SSSE Classes (in-person &amp; online)</span>
+              </div>
+            </div>
+            <p style="font-size:0.78rem;color:var(--text-light);margin-top:0.75rem">
+              To register: <a href="mailto:sseedmonton@gmail.com" style="color:var(--primary)">sseedmonton@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERIES / BOOKS ===== -->
+  <section id="series">
+    <div class="container">
+      <div class="series-header">
+        <p class="section-subtitle">Spiritual Reading</p>
+        <h2 class="section-title">Vahinis &amp; <span>Study Materials</span></h2>
+        <div class="gold-rule center"></div>
+      </div>
+      <div class="series-track-wrap">
+        <div class="series-track" id="series-track">
+          <div class="series-card">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/gita.jpg" alt="Geetha Series" loading="lazy">
+            <div class="series-card-body">
+              <p>Geetha Series<br>Slokas 1 to 6</p>
+            </div>
+          </div>
+          <div class="series-card">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/dharma.jpg" alt="Dharma Vahini" loading="lazy">
+            <div class="series-card-body">
+              <p>Read Dharma<br>Vahini e-book</p>
+            </div>
+          </div>
+          <div class="series-card">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/prema.jpg" alt="Prema Vahini" loading="lazy">
+            <div class="series-card-body">
+              <p>Read Prema<br>Vahini e-book</p>
+            </div>
+          </div>
+          <div class="series-card">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/prema.jpg" alt="Prema Vahini" loading="lazy">
+            <div class="series-card-body">
+              <p>Read Prema<br>Vahini e-book</p>
+            </div>
+          </div>
+          <div class="series-card">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/dharma.jpg" alt="Dharma Vahini" loading="lazy">
+            <div class="series-card-body">
+              <p>Read Dharma<br>Vahini e-book</p>
+            </div>
+          </div>
+          <div class="series-card">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/gita.jpg" alt="Geetha Series" loading="lazy">
+            <div class="series-card-body">
+              <p>Listen to Geetha<br>Series, Slokas 1 to 6</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="series-nav">
+        <button class="series-btn" onclick="scrollSeries(-1)" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="series-btn" onclick="scrollSeries(1)" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CALENDAR ===== -->
+  <section id="edmCalendar">
+    <div class="container">
+      <div class="calendar-header">
+        <p class="section-subtitle">Stay Informed</p>
+        <h2 class="section-title">Edmonton Centre <span>Calendar</span></h2>
+        <div class="gold-rule center"></div>
+      </div>
+      <div class="calendar-embed-wrap">
+        <iframe
+          src="https://calendar.google.com/calendar/embed?height=520&wkst=1&ctz=America%2FEdmonton&showPrint=0&src=c2FpZWRtb250b25AZ21haWwuY29t&color=%23C8590A"
+          height="520"
+          title="Edmonton Sai Centre Calendar">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <p class="section-subtitle">Memories</p>
+        <h2 class="section-title">Edmonton Sai Centre <span>Gallery</span></h2>
+        <div class="gold-rule center"></div>
+      </div>
+
+      <!-- Human Values Day -->
+      <div class="gallery-section">
+        <div class="gallery-section-title">Human Values Day, 2018</div>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0890.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0909.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0912.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0913.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0914.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0915.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0916.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0917.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0920.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0925.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0930.JPG" alt="Human Values Day" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery1/DSC_0935.JPG" alt="Human Values Day" loading="lazy"></div>
+        </div>
+      </div>
+
+      <!-- SSE Group 3 -->
+      <div class="gallery-section">
+        <div class="gallery-section-title">SSE Group 3 — Art Work on Mother Nature</div>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery3/Group3.png" alt="SSE Group 3" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery3/Group31.jpg" alt="SSE Group 3" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery3/Group32.jpg" alt="SSE Group 3" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery3/Group33.jpg" alt="SSE Group 3" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery3/Group34.png" alt="SSE Group 3" loading="lazy"></div>
+        </div>
+      </div>
+
+      <!-- Interfaith Unity Walk -->
+      <div class="gallery-section">
+        <div class="gallery-section-title">Interfaith Unity Walk</div>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery2/IMG_0676.jpg" alt="Interfaith Unity Walk" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery2/IMG_0678.jpg" alt="Interfaith Unity Walk" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery2/IMG_0679.jpg" alt="Interfaith Unity Walk" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery2/IMG_0688.jpg" alt="Interfaith Unity Walk" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery2/IMG_0693.jpg" alt="Interfaith Unity Walk" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery2/IMG_0694.jpg" alt="Interfaith Unity Walk" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery2/IMG_7600.jpg" alt="Interfaith Unity Walk" loading="lazy"></div>
+          <div class="gallery-item" onclick="openLightbox(this)"><img src="https://saibabacentre-edmonton.ca/resources/images/gallery2/IMG_7604.jpg" alt="Interfaith Unity Walk" loading="lazy"></div>
+        </div>
+      </div>
+
+      <!-- Walk for Values Video -->
+      <div class="gallery-section">
+        <div class="gallery-section-title">Walk for Values</div>
+        <div style="max-width:700px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)">
+          <iframe
+            width="100%"
+            height="380"
+            src="https://www.youtube.com/embed/hJmRtGu6ovI"
+            title="Walk for Values"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            style="display:block">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ARTICLES ===== -->
+  <section id="articles">
+    <div class="container">
+      <div class="articles-header">
+        <p class="section-subtitle">Inspiration &amp; Updates</p>
+        <h2 class="section-title">Latest <span>Articles</span></h2>
+        <div class="gold-rule center"></div>
+      </div>
+      <div class="articles-grid">
+        <!-- Sing His Glory -->
+        <div class="article-card">
+          <div class="article-card-img">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/SingHisGlory.png" alt="Sing His Glory" loading="lazy">
+          </div>
+          <div class="article-body">
+            <div class="article-date">December 7, 2024</div>
+            <h3>Sing His Glory</h3>
+            <p>A Family Bhajan Sadhana — offering 100K bhajans collectively as a gift to Bhagawan Sri Sathya Sai Baba on His 100th Birthday!</p>
+            <a href="https://sathyasai.ca/glory//" target="_blank" rel="noopener" class="read-more">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Trees of Love -->
+        <div class="article-card">
+          <div class="article-card-img">
+            <iframe src="https://www.youtube.com/embed/jkTYBZkSOYk?si=i74EJU20TkJ6_-7x" title="Trees of Love" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="article-body">
+            <div class="article-date">December 7, 2024</div>
+            <h3>Trees of Love</h3>
+            <p>The Goal: Plant and nurture One Hundred Thousand Trees by November 2025 to commemorate our founder Sri Sathya Sai Baba's 100th birthday.</p>
+            <a href="https://treesoflove.ca//" target="_blank" rel="noopener" class="read-more">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Permeating Planet with Love -->
+        <div class="article-card">
+          <div class="article-card-img">
+            <iframe src="https://www.youtube.com/embed/DByWWlFzElI" title="Permeating Planet with Love" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="article-body">
+            <div class="article-date">December 4, 2021</div>
+            <h3>Permeating Planet with Love</h3>
+            <p>A short 5–10 minute meditation to spread love around the world. If all Sai devotees join in and do this meditation daily, we will change the sad state of affairs for the planet.</p>
+            <a href="https://mcusercontent.com/7a91a5ba491b1c4a0f3be5370/files/79537d5e-0ee1-1580-fc2b-40f06069bc96/AvatarDeclarationDayStudyGuide.pdf" target="_blank" rel="noopener" class="read-more">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sai Asthottara -->
+        <div class="article-card">
+          <div class="article-card-img">
+            <iframe src="https://www.youtube.com/embed/fWR9pX1y5BU" title="Sai Asthottara Satha Namavali" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="article-body">
+            <div class="article-date">April 24, 2021</div>
+            <h3>Sai Asthottara Satha Namavali</h3>
+            <p>There is no better offering to Swami other than chanting His Names and thus sanctify our time. May this chanting become our regular Sadhana.</p>
+            <span class="read-more" style="cursor:default;opacity:0.5">Read More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Learn a Bhajan -->
+        <div class="article-card">
+          <div class="article-card-img">
+            <img src="https://saibabacentre-edmonton.ca/resources/images/Singing-Bhajans-Akhanda-Bhajan-Radiosai.jpg" alt="Learn a Bhajan" loading="lazy">
+          </div>
+          <div class="article-body">
+            <div class="article-date">November 3, 2020</div>
+            <h3>Learn a Bhajan a Week</h3>
+            <p>An amazing opportunity to learn singing bhajans from a Radio Sai tutor at the convenience of your home!</p>
+            <a href="https://media.radiosai.org/journals/vol_18/01JUN20/Seshashaila-Vasa-Narayana-Bhajan-Tutor.htm" target="_blank" rel="noopener" class="read-more">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Christmas Discourse -->
+        <div class="article-card">
+          <div class="article-card-img">
+            <iframe src="https://www.youtube.com/embed/KzWQw17-l5U" title="Christmas Discourse" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="article-body">
+            <div class="article-date">December 4, 2021</div>
+            <h3>Christmas Discourse — Sathya Sai Baba</h3>
+            <p>An excerpt of Sathya Sai Baba's Discourse from Christmas 1998 — Swami explains the significance of Christmas Celebrations in Prashanthi Nilayam.</p>
+            <span class="read-more" style="cursor:default;opacity:0.5">Read More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONNECT STRIP ===== -->
+  <section id="connect">
+    <div class="container">
+      <h2>Stay Connected with Us</h2>
+      <p>Follow us on social media and join our community to receive updates, event announcements, and spiritual content.</p>
+      <div class="connect-links">
+        <a href="https://www.facebook.com/saicentreedmonton/" target="_blank" rel="noopener" class="connect-pill">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://www.youtube.com/channel/UC_PlUutiUyR8PNBlKMzJCtQ/featured" target="_blank" rel="noopener" class="connect-pill">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a href="https://www.instagram.com/saiedmonton/" target="_blank" rel="noopener" class="connect-pill">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://mixlr.com/sai-centre-edmonton/" target="_blank" rel="noopener" class="connect-pill">
+          <i class="fas fa-broadcast-tower"></i> Live Bhajans
+        </a>
+        <a href="https://saibabacentre-edmonton.us13.list-manage.com/subscribe?u=7a91a5ba491b1c4a0f3be5370&id=23b2161e48" target="_blank" rel="noopener" class="connect-pill">
+          <i class="fas fa-envelope"></i> Weekly Emails
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="edmContactUs">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <img src="https://saibabacentre-edmonton.ca/resources/images/ssio-logo.png" alt="SSIO Logo">
+          <p>Sri Sathya Sai Baba Centre of Edmonton — SSIO Canada, Zone 1, Region 13. Helping humanity realise its inherent divinity through devotion, education, and selfless service.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/saicentreedmonton/" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UC_PlUutiUyR8PNBlKMzJCtQ/featured" target="_blank" rel="noopener" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/saiedmonton/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://mixlr.com/sai-centre-edmonton/" target="_blank" rel="noopener" title="Live Bhajans"><i class="fas fa-broadcast-tower"></i></a>
+          </div>
+        </div>
+
+        <!-- Other Sites -->
+        <div class="footer-col">
+          <h4>Other Sites</h4>
+          <ul>
+            <li><a href="http://sathyasai.org/" target="_blank" rel="noopener">Sathya Sai International</a></li>
+            <li><a href="http://sathyasai.ca/" target="_blank" rel="noopener">Sathya Sai Canada</a></li>
+            <li><a href="https://www.prasanthinilayam.in/" target="_blank" rel="noopener">Prasanthi Nilayam</a></li>
+            <li><a href="https://www.sssmediacentre.org/" target="_blank" rel="noopener">Radio Sai</a></li>
+            <li><a href="http://saibooksonline.org/" target="_blank" rel="noopener">Sai Books Online</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col footer-newsletter">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:7804377243">(780) 437-7243</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:saicenteredmonton@telus.net">saicenteredmonton@telus.net</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="https://www.google.com/maps/place/Sri+Sathya+Sai+Baba+Centre+of+Edmonton/@53.517882,-113.4777399,15z" target="_blank" rel="noopener">
+              9619 82nd Ave NW,<br>Edmonton, AB, T6C 0Z9
+            </a>
+          </div>
+          <br>
+          <h4>Stay in Touch</h4>
+          <p>Sign up for our weekly emails to receive updates and announcements.</p>
+          <div class="newsletter-form">
+            <a href="https://saibabacentre-edmonton.us13.list-manage.com/subscribe?u=7a91a5ba491b1c4a0f3be5370&id=23b2161e48" target="_blank" rel="noopener">
+              <i class="fas fa-paper-plane" style="margin-right:0.4rem"></i>Subscribe
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Sri Sathya Sai Baba Centre of Edmonton. All rights reserved.</span>
+        <span>
+          <a href="http://sathyasai.org/" target="_blank" rel="noopener">SSIO</a> ·
+          <a href="http://sathyasai.ca/" target="_blank" rel="noopener">SSIO Canada</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div id="lightbox">
+    <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="Gallery image">
+  </div>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* ----- NAVBAR SCROLL ----- */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+      document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    /* ----- MOBILE NAV ----- */
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+    function toggleDropdown(el) {
+      const menu = el.nextElementSibling;
+      if (!menu) return;
+      menu.classList.toggle('open');
+    }
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!document.getElementById('navbar').contains(e.target)) {
+        document.getElementById('nav-links').classList.remove('open');
+      }
+    });
+
+    /* ----- HERO CAROUSEL ----- */
+    const slides = document.querySelectorAll('.hero-slide');
+    const dotsContainer = document.getElementById('hero-dots');
+    let current = 0, autoSlide;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Slide ${i + 1}`);
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    });
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dotsContainer.children[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dotsContainer.children[current].classList.add('active');
+      resetAuto();
+    }
+    function changeSlide(dir) { goToSlide(current + dir); }
+    function resetAuto() {
+      clearInterval(autoSlide);
+      autoSlide = setInterval(() => goToSlide(current + 1), 5500);
+    }
+    resetAuto();
+
+    // Pause on hover
+    document.getElementById('hero').addEventListener('mouseenter', () => clearInterval(autoSlide));
+    document.getElementById('hero').addEventListener('mouseleave', resetAuto);
+
+    /* ----- SERIES CAROUSEL ----- */
+    const track = document.getElementById('series-track');
+    let seriesOffset = 0;
+    const cardWidth = 220;
+
+    function scrollSeries(dir) {
+      const maxOffset = -(track.children.length - 5) * cardWidth;
+      seriesOffset = Math.max(maxOffset, Math.min(0, seriesOffset + dir * -(cardWidth * 2)));
+      track.style.transform = `translateX(${seriesOffset}px)`;
+    }
+
+    /* ----- GALLERY LIGHTBOX ----- */
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    /* ----- SMOOTH SCROLL FOR NAV LINKS ----- */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('nav-links').classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
